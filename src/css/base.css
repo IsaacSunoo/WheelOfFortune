@@ -1,3 +1,40 @@
 body {
   background-color: pink;
 }
+
+.letter-block{
+  background-color: aqua;
+  height: 50px;
+  width: 50px;
+
+}
+
+.game-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  height: 300px;
+}
+
+.main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rosybrown;
+  height: 200px;
+  width: 200px;
+}
+
+.wheel-section {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
