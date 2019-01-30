@@ -2,17 +2,17 @@ body {
   background-color: pink;
 }
 
+.account-section{
+  display:flex;
+  justify-content: space-around;
+  margin-top: 15px;
+} 
+
 .letter-block{
   background-color: aqua;
   height: 50px;
   width: 50px;
 
-}
-
-.header{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .game-board {
@@ -23,11 +23,45 @@ body {
   height: 300px;
 }
 
-/* .main-title {
+.guess-input {
+  width: 400px;
+}
+
+.guess-section {
   display: flex;
-  align-items: center;
   justify-content: center;
-} */
+  margin: 20px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player-box {
+  background-color: aqua;
+  padding: 30px 50px 30px 50px;
+}
+
+
+.player-score {
+  background-color: aquamarine;
+  padding: 10px 50px 10px 50px;
+}
+
+.player-section{
+  display:flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.wheel-section {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .wheel-container {
   display: flex;
@@ -36,33 +70,6 @@ body {
   background-color: rosybrown;
   height: 200px;
   width: 200px;
-}
+  margin-left: 40px;
 
-.wheel-section {
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.player-section{
-  display:flex;
-  justify-content: space-around;
-  margin-top: 60px;
-}
-
-.player-box {
-  background-color: aqua;
-  padding: 30px 50px 30px 50px;
-}
-
-.account-section{
-  display:flex;
-  justify-content: space-around;
-  margin-top: 15px;
-} 
-
-.player-score {
-  background-color: aquamarine;
-  padding: 10px 50px 10px 50px;
 }
