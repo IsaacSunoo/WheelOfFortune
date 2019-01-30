@@ -6,7 +6,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800,900" rel="stylesheet">
   </head>
   <body>
-    <h1 class="main-title">Wheel Of Fortune</h1>
+    <section class="header">
+      <button class="reset-btn">Quit/Restart Game</button>
+      <h1 class="main-title">Wheel Of Fortune</h1>
+      <div class="round-counter">Round #/Bonus</div>
+    </section>
     <table class="game-board">
       <tr>
         <td></td>
@@ -74,7 +78,18 @@
       </tr>
     </table>  
     <section class="wheel-section">
-      <div class="wheel-container">Wheel</div>  
+      <div class="wheel-container">Wheel</div>
     </section>
+    <section class="player-section">
+      <div class="player-box player-1-box">Player 1</div>
+      <div class="player-box player-2-box">Player 2</div>
+      <div class="player-box player-3-box">Player 3</div>
+    </section>
+    <section class="account-section">
+      <div class="player-score player-1-score">$$$</div>
+      <div class="player-score player-2-score">$$$</div>
+      <div class="player-score player-3-score">$$$</div>
+    </section>
+
   </body>
 </html>
