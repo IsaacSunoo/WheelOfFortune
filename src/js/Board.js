@@ -1,3 +1,13 @@
 class Board {
 
+
+randomizeNewBoard() {
+
+  };
+
+changeBank() {
+
+  };
+
+
 }

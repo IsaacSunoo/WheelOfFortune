@@ -1,5 +1,6 @@
 class Wheel {
 
+<<<<<<< Updated upstream
 }
 var padding = { top: 20, right: 40, bottom: 0, left: 0 },
     w = 500 - padding.left - padding.right,
@@ -163,5 +164,13 @@ function getRandomNumbers() {
     }
     return array;
 }
+=======
+>>>>>>> Stashed changes
 
-console.log("Connected with wheel");
+
+spinWheel() {
+
+  };
+
+
+}
