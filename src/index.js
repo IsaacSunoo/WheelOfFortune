@@ -7,5 +7,7 @@ import './css/base.css';
 //  Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png'
 
+// import './js/Wheel.js'
+
 
 console.log('This is the JavaScript entry file - your code begins here.');

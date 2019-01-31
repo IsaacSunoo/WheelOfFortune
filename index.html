@@ -3,7 +3,7 @@
   <head>
     <title>Wheel Of Fortune</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800,900" rel="stylesheet">  
   </head>
   <body>
     <section class="header">
@@ -82,7 +82,10 @@
     </section>
     <section class="wheel-section">
       <button class="spin-btn">SPIN</button>
-      <div class="wheel-container">Wheel</div>
+      <div class="wheel-container">
+          <div id="chart"></div>
+          <div id="question"><h1></h1></div>
+      </div>
       <button class="vowel-btn">Buy A Vowel</button>
     </section>
     <section class="player-section">
@@ -95,6 +98,6 @@
       <div class="player-score player-2-score">$$$</div>
       <div class="player-score player-3-score">$$$</div>
     </section>
-
+    <script src="https://d3js.org/d3.v5.min.js"></script>
   </body>
 </html>
