@@ -125,7 +125,7 @@ svg.append("g")
     .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h / 2) + padding.top) + ")")
     .append("path")
     .attr("d", "M-" + (r * .15) + ",0L0," + (r * .05) + "L0,-" + (r * .05) + "Z")
-    .style({ "fill": "black" });
+    .style({ "fill": "white" });
 //draw spin circle
 container.append("circle")
     .attr("cx", 0)
@@ -147,7 +147,6 @@ function rotTween(to) {
         return "rotate(" + i(t) + ")";
     };
 }
-
 
 function getRandomNumbers() {
     var array = new Uint16Array(1000);
