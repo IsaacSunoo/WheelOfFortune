@@ -1,7 +1,7 @@
 {
   "name": "gametime-starter",
   "version": "1.0.0",
-  "description": "Gametime starter kit using webpack, mocha, and chai",
+  "description": "Wheel of Fortune using webpack, mocha, and chai",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server",
