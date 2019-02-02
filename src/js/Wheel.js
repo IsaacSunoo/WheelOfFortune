@@ -4,13 +4,19 @@ class Wheel {
     this.currentSpin;
   }
 
+
+
 createWheel() {
 
 }
 
 spinWheel() {
+  
 
   };
+
+
+
 
 
 }

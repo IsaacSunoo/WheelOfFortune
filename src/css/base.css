@@ -56,6 +56,37 @@ body {
   margin-top: 20px;
 }
 
+.wheel {
+    text-align: center;
+    animation: spin .8s linear; 
+    display: block; 
+    fill: #223344; 
+    float: left; 
+    height: 150px; 
+    margin: 0 5px 5px 0; 
+    width: 150px;
+    position: relative;
+    margin: 50px auto;
+    transition: 5s;
+  }
+  
+  /* @-moz-keyframes spin {
+    100% {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    100% {
+      -webkit-transform: rotate(720deg); 
+      transform:rotate(360deg);
+    }
+} */
+
 .wheel-section {
   margin-top: 30px;
   display: flex;
@@ -67,10 +98,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rosybrown;
+  background-color: antiquewhite;
   height: 200px;
   width: 200px;
   margin-left: 40px;
 
 }
+
 
