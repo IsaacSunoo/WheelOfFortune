@@ -1,25 +1,25 @@
 class Player {
-  constructor(name, account, turn, option ) {
+  constructor(name) {
     this.name = name || 'Player 1';
+    this.roundScore = roundScore;
     this.account = account || 0;
     this.turn = turn || false;
-    this.option = option;
+    // this.option = option;
 
   }
-
-  updateAccount() {
-
-  };
 
   changeTurn() {
 
   };
 
-  
+  buyAVowel() {
+    this.roundScore -= 100;
+  };
 
-
-
-
-
+  addToPlayerScore() {
+    this.account += roundScore;
+  }
 
 }
+
+  export default Player;

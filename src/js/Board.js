@@ -11,3 +11,5 @@ changeBank() {
 
 
 }
+
+export default Board;
