@@ -1,3 +1,5 @@
+import Wheel from './Wheel'
+
 class Game {
   constructor(round) {
     this.round = round || 1;
@@ -57,6 +59,7 @@ class Game {
 
 
 }
+
 
 export default Game;
 
