@@ -1,5 +1,12 @@
 class Wheel {
+  constructor() {
+    this.wheelValus = [];
+    this.currentSpin;
+  }
 
+createWheel() {
+  
+}
 
 spinWheel() {
 
@@ -7,3 +14,5 @@ spinWheel() {
 
 
 }
+
+export default Wheel;

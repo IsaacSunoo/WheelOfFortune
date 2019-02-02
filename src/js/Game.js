@@ -3,6 +3,10 @@ class Game {
     this.round = round || 1;
   };
 
+  initiateGame() {
+
+  }
+
   quitResetGame() {
 
   };
@@ -12,7 +16,7 @@ class Game {
   };
 
   incrementRound() {
-
+    this.round += round;
   };
 
   loseATurn() {
@@ -28,10 +32,6 @@ class Game {
   };
 
   chooseConstanant() {
-
-  };
-
-  buyAVowel() {
 
   };
 
@@ -57,5 +57,7 @@ class Game {
 
 
 }
+
+export default Game;
 
 
