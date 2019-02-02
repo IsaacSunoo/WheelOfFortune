@@ -23,10 +23,6 @@ class Game {
 
   };
 
-  bankrupt() {
-
-  };
-
   choosePuzzle() {
 
   };

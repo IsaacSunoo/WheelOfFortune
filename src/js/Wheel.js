@@ -1,11 +1,11 @@
 class Wheel {
   constructor() {
-    this.wheelValus = [];
+    this.wheelValues = [];
     this.currentSpin;
   }
 
 createWheel() {
-  
+
 }
 
 spinWheel() {
