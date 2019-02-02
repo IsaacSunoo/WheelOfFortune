@@ -7,9 +7,10 @@ import './css/base.css';
 // Tell webpack to use these js files
 import './js/Board.js';
 import './js/Player.js';
-import './js/domUpdates';
+import './js/domUpdates.js';
 import './js/Game.js';
 import './js/Wheel.js';
+
 
 
 
@@ -17,6 +18,9 @@ import './js/Wheel.js';
 import './images/turing-logo.png';
 import './images/Six-Color_Standard_Wheel.png';
 import './images/steering-wheel.svg'
+import Wheel from './js/Wheel.js';
+import domUpdates from './js/domUpdates.js';
+import Game from './js/Game.js';
 
 
 
@@ -25,8 +29,12 @@ import './images/steering-wheel.svg'
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-$(".spin-btn").on("click", (e) => {
-  e.preventDefault()
-  console.log("hello world")
-  $(".wheel").css("transform", "rotate(4188deg)");
-})
+var newGameInstance = new Game 
+window.onload = () => {
+  newGameInstance.initiateGame()
+}
+
+
+// $(".spin-btn").on("click", () => {
+//   $(".wheel").css("transform", "rotate(4188deg)");
+// })

@@ -1,3 +1,5 @@
+import DomUpdates from './domUpdates'
+
 class Wheel {
   constructor() {
     this.wheelValus = [];
@@ -10,10 +12,9 @@ createWheel() {
 
 }
 
-spinWheel() {
-  
+spinWheel(){
 
-  };
+}
 
 
 
