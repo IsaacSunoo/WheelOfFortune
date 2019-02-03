@@ -24,6 +24,10 @@ class Player {
     }
   }
 
+  clearRoundScore() {
+    this.roundScore = 0;
+  }
+
 
 }
 
