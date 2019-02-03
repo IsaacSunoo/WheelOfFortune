@@ -1,5 +1,6 @@
 
 class domUpdates {
+
    constructor() {
 
    }
@@ -10,7 +11,3 @@ spinWheel() {
       $(".wheel").css("transform", "rotate(4188deg)");
     })
   };
-
-}
-
-export default domUpdates;
