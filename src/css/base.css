@@ -57,35 +57,19 @@ body {
 }
 
 .wheel {
+    position: absolute;
     text-align: center;
     animation: spin .8s linear; 
     display: block; 
     fill: #223344; 
     float: left; 
-    height: 150px; 
+    height: 200px; 
     margin: 0 5px 5px 0; 
-    width: 150px;
+    width: 200px;
     position: relative;
     margin: 50px auto;
     transition: 5s;
-  }
-  
-  /* @-moz-keyframes spin {
-    100% {
-      -moz-transform: rotate(360deg);
-    }
-  }
-  @-webkit-keyframes spin {
-    100% {
-      -webkit-transform: rotate(360deg);
-    }
-  }
-  @keyframes spin {
-    100% {
-      -webkit-transform: rotate(720deg); 
-      transform:rotate(360deg);
-    }
-} */
+}
 
 .wheel-section {
   margin-top: 30px;
@@ -98,7 +82,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: pink;
   height: 200px;
   width: 200px;
   margin-left: 40px;

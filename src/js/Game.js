@@ -1,4 +1,5 @@
-import Wheel from './Wheel'
+import Wheel from './Wheel.js'
+import domUpdates from './domUpdates.js';
 
 class Game {
   constructor(players, currentPuzzle) {
@@ -18,7 +19,14 @@ class Game {
   // 24 four word answers
 
   selectRandomPuzzle() {
+    
+  }
 
+  initiateGame() {
+    var domUpdatesInstance = new domUpdates
+  
+      domUpdatesInstance.spinWheel()
+    
   }
 
   quitResetGame() {
