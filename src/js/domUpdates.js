@@ -1,38 +1,46 @@
+import Wheel from './Wheel'
+
 class domUpdates {
 
     constructor() {
 
     }
 
+
+
     spinWheel() {
-        var color = 1;
+  
+    let randomNum = Math.floor(Math.random() * 6);
+    console.log(randomNum)
+      
+      var color = randomNum;
         switch(color) {
-          case 1:
+          case 0:
           $(".spin-btn").on("click", () => {
             $(".wheel").css("transform", "rotate(720deg)");
               });
           break;
-          case 2:
+          case 1:
           $(".spin-btn").on("click", () => {
             $(".wheel").css("transform", "rotate(780deg)");
               });
           break;
-          case 3:
+          case 2:
           $(".spin-btn").on("click", () => {
             $(".wheel").css("transform", "rotate(840deg)");
               });
           break;
-          case 4:
+          case 3:
           $(".spin-btn").on("click", () => {
             $(".wheel").css("transform", "rotate(900deg)");
               });
           break;
-          case 5:
+          case 4:
           $(".spin-btn").on("click", () => {
             $(".wheel").css("transform", "rotate(960deg)");
               });
           break;
-          case 6:
+          case 5:
           $(".spin-btn").on("click", () => {
             $(".wheel").css("transform", "rotate(1020deg)");
               });
