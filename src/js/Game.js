@@ -1,8 +1,14 @@
 import Wheel from './Wheel'
 
 class Game {
-  constructor(round) {
+  constructor(players, currentPuzzle) {
+    this.players = players;
+    this.currentPuzzle = currentPuzzle;
     this.round = round || 1;
+    this.puzzleLettersArray = [];
+    this.currentPlayer = 0;
+    this.highestScore = 0;
+    this.currentAnswer = '';
   };
 
   initiateGame() {
@@ -29,6 +35,12 @@ class Game {
 
   };
 
+  // checkLetterPresent(letter) {
+  //   if (this.currentAnswer.includes(letter)) {
+  //     this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currenSpin);
+  //   }
+  // }
+
   chooseConstanant() {
 
   };
@@ -38,10 +50,6 @@ class Game {
   };
 
   checkVowel() {
-
-  };
-
-  chooseOption() {
 
   };
 

@@ -5,13 +5,11 @@
 import './css/base.css';
 
 // Tell webpack to use these js files
-import jquery from 'jquery';
 import './js/Board.js';
 import './js/Player.js';
 import './js/domUpdates';
 import './js/Game.js';
 import './js/Wheel.js';
-import jquery from jquery;
 
 
 
