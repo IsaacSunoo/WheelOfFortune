@@ -2,7 +2,7 @@ import Wheel from './Wheel.js'
 import domUpdates from './domUpdates.js';
 
 class Game {
-  constructor(players, currentPuzzle) {
+  constructor(players, currentPuzzle, round) {
     this.players = players;
     this.currentPuzzle = currentPuzzle;
     this.round = round || 1;
@@ -19,14 +19,14 @@ class Game {
   // 24 four word answers
 
   selectRandomPuzzle() {
-    
+
   }
 
   initiateGame() {
-    var domUpdatesInstance = new domUpdates
-  
+    var domUpdatesInstance = new domUpdates;
+
       domUpdatesInstance.spinWheel()
-    
+
   }
 
   quitResetGame() {
@@ -75,7 +75,7 @@ class Game {
   };
 
   startNewRound() {
-    // increment round by one and clear player round scores 
+    // increment round by one and clear player round scores
     this.currentRound++;
     this.players.forEach(player => {
       clearRoundScore();
