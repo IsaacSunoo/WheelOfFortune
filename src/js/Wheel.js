@@ -1,3 +1,5 @@
+import DomUpdates from './domUpdates'
+
 class Wheel {
   constructor() {
     this.wheelValues = [];
@@ -13,14 +15,9 @@ createWheelValues() {
   }
 }
 
-spinWheel() {
-  this.currentSpin = this.wheelValues[randomNum];
-  let randomNum = Math.floor(Math.random() * 6);
-  let spin = randomNum * (Math.ceil(Math.random() * 4) * 360);
-  domUpdates.spinWheel(spin);
-  console.log(randomNum);
 
-  };
+spinWheel(){
+
 
 
 
