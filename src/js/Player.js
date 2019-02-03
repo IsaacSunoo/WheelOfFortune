@@ -13,14 +13,19 @@ class Player {
     this.roundScore -= 100;
   }
 
-  addToPlayerAccount() {
+  addToPlayerScore(roundValue) {
     // conditional if player gets bankrupt, lost turn, or a value to add to round score
-
+    if (roundValue === 'LOSE A TURN' ) {
+      // Skip turn on player
+    } else if (roundValue === 'BANKRUPT') {
+      // Set player round score to 0
+    } else {
+      this.roundScore += roundValue;
+    }
   }
 
-  bankrupt() {
-    this.account = 0;
-  }
+
 }
+console.log("Player is connected");
 
   export default Player;
