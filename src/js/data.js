@@ -646,7 +646,7 @@ const data = {
           first_word: 4,
           description: 'Location or object(s) found within a typical house.',
           correct_answer: 'Vase Full Of Flowers',
-        },  
+        },
         {
           category: 'The 90s',
           number_of_words: 4,
@@ -807,3 +807,5 @@ const data = {
     }
   }
 };
+
+export default data;
