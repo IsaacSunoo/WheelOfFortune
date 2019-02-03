@@ -8,7 +8,7 @@ class Game {
     this.puzzleLettersArray = [];
     this.currentPlayer = 0;
     this.highestScore = 0;
-    this.currentAnswer = '';
+    this.roundAnswer = '';
   };
 
   initiateGame() {
@@ -35,11 +35,14 @@ class Game {
 
   };
 
-  // checkLetterPresent(letter) {
-  //   if (this.currentAnswer.includes(letter)) {
-  //     this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currenSpin);
-  //   }
-  // }
+  checkLetterPresent(letter) {
+    if (this.roundAnswer.includes(letter)) {
+      this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currenSpin);
+      // Change players round score in dom to update player
+      // Display the players guess on the board if the letter is on the board
+    }
+
+  }
 
   chooseConstanant() {
 
