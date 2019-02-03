@@ -15,7 +15,6 @@ class Wheel {
     }
   }
 
-
   spinWheel() {
     this.currentSpin = this.wheelValues[randomNum];
     let randomNum = Math.floor(Math.random() * 6);

@@ -1,5 +1,6 @@
 import Wheel from './Wheel.js'
 import domUpdates from './domUpdates.js';
+import data from './data.js';
 
 class Game {
   constructor(players, currentPuzzle, round) {
@@ -13,13 +14,23 @@ class Game {
 
   };
 
-  // 24 one word answers
-  // 24 two word answers
-  // 24 three word answers
-  // 24 four word answers
-
   selectRandomPuzzle() {
+    let randomNum = Math.floor(Math.random() * 4);
+    if (randomNum === 0) {
+      this.selectRandomQuestion(data.puzzles.one_word_answers);
+    } else if (randomNum === 1) {
+      this.selectRandomQuestion(data.puzzles.two_word_answers);
+    } else if (randomNum === 2) {
+      this.selectRandomQuestion(data.puzzles.three_word_answers);
+    } else {
+      this.selectRandomQuestion(data.puzzles.four_word_answers);
+    }
+  }
 
+  selectRandomQuestion(questions) {
+    let selectQuestion = Math.floor(Math.random() * 24);
+    let puzzleBank = questions.puzzle_bank;
+    console.log(puzzleBank[selectQuestion]);
   }
 
   initiateGame() {
