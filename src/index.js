@@ -6,7 +6,6 @@ import './css/base.css';
 
 // Tell webpack to use these js files
 
-import Board from './js/Board.js';
 import Player from './js/Player.js';
 import domUpdates from'./js/domUpdates.js';
 import Game from './js/Game.js';
@@ -23,7 +22,16 @@ var newGameInstance = new Game;
 window.onload = () => {
   newGameInstance.initiateGame();
   newGameInstance.selectRandomPuzzle();
+
+  newGameInstance.deconstructPuzzle();
+
 }
+
+players = [
+  new Player($('#player1').val()),
+  new Player($('#player2').val()),
+  new Player($('#player3').val())
+];
 
 
 

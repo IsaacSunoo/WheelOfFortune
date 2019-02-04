@@ -5,12 +5,6 @@ class Player {
     this.name = name || 'Player 1';
     this.roundScore =  0;
     this.account = 0;
-    this.turn = turn || false;
-    
-  }
-
-  addPlayerName() {
-    $('.player-1-box').html('<input type="text"></input>')
   }
 
   changeTurn() {}
