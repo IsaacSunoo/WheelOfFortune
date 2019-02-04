@@ -15,8 +15,3 @@ import './images/steering-wheel.svg'
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-$(".spin-btn").on("click", (e) => {
-  e.preventDefault()
-  console.log("hello world")
-  $(".wheel").css("transform", "rotate(4188deg)");
-})
