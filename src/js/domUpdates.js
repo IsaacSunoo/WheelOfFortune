@@ -3,16 +3,9 @@ import Data from './data'
 
 class domUpdates {
 
-    constructor() {
-
-    }
-
-
-
     spinWheel() {
   
     let randomNum = Math.floor(Math.random() * 6);
-    
       
       var color = randomNum;
         switch(color) {
@@ -52,7 +45,9 @@ class domUpdates {
     }
 
     updateColorValue() {
-    let colors = {
+    
+    
+      let colors = {
       red: '',
       orange: '',
       yellow: '',
@@ -60,8 +55,6 @@ class domUpdates {
       blue: '',
       purple: ''    
     };
-
-
 
     for(let i = 0; i < 6; i++){
       for(var property in colors){
@@ -71,6 +64,12 @@ class domUpdates {
       }
     }
     console.log(colors)
+    $('.wheel-red').text(`Red: ${colors.red}`)
+    $('.wheel-orange').text(`Orange: ${colors.orange}`)
+    $('.wheel-yellow').text(`Yellow: ${colors.yellow}`)
+    $('.wheel-green').text(`Green: ${colors.green}`)
+    $('.wheel-blue').text(`Blue: ${colors.blue}`)
+    $('.wheel-purple').text(`Purple: ${colors.purple}`)
     }
 
 };
