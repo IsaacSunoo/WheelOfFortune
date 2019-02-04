@@ -3,8 +3,6 @@ class Player {
     this.name = name || 'Player 1';
     this.roundScore =  0;
     this.account = 0;
-    this.turn = turn || false;
-    // this.option = option;
   }
 
   changeTurn() {}
