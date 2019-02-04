@@ -39,6 +39,12 @@ body {
   align-items: center;
 }
 
+.key-table {
+  display: flex;
+  flex-direction: column;
+
+}
+
 .player-box {
   background-color: aqua;
   padding: 30px 50px 30px 50px;
