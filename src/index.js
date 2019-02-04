@@ -6,7 +6,6 @@ import './css/base.css';
 
 // Tell webpack to use these js files
 
-import Board from './js/Board.js';
 import Player from './js/Player.js';
 import domUpdates from'./js/domUpdates.js';
 import Game from './js/Game.js';
@@ -25,9 +24,28 @@ window.onload = () => {
   newGameInstance.selectRandomPuzzle();
 }
 
+$('.create-player').on('click', (e) => {
+  e.preventDefault();
+
+  let players = [
+    new Player($('.player-1-box').val()),
+    new Player($('.player-2-box').val()),
+    new Player($('.player-3-box').val())
+  ];
+
+  console.log(players);
+
+
+})
+
+
 
 
 
 // $(".spin-btn").on("click", () => {
 //   $(".wheel").css("transform", "rotate(4188deg)");
 // })
+
+	
+	
+	

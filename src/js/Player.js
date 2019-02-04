@@ -10,7 +10,13 @@ class Player {
   }
 
   addPlayerName() {
-    $('.player-1-box').html('<input type="text"></input>')
+    let $name1 = `${'.player-1-box'}`;
+    let $name2 = `${'.player-2-box'}`;
+    let $name3 = `${'.player-3-box'}`;
+    
+    for (let i = 1; i < 4; i++){
+      let player
+    }
   }
 
   changeTurn() {}
