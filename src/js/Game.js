@@ -1,6 +1,7 @@
 import Wheel from './Wheel.js'
 import domUpdates from './domUpdates.js';
 import data from './data.js';
+import Player from './Player.js'
 
 class Game {
   constructor(players, currentPuzzle, round) {
@@ -34,6 +35,12 @@ class Game {
   }
 
   initiateGame() {
+    
+    let player1 = new Player();
+
+    
+    
+    
     var domUpdatesInstance = new domUpdates;
 
       domUpdatesInstance.spinWheel()
@@ -41,7 +48,9 @@ class Game {
   }
 
   quitResetGame() {
-
+    $(".spin-btn").on("click", () => {
+      $(".wheel").css("transform", "rotate(720deg)");
+        });
   };
 
   incrementRound() {

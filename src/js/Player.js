@@ -1,10 +1,16 @@
+import Game from './Game'
+
 class Player {
-  constructor(name) {
+  constructor(name, turn) {
     this.name = name || 'Player 1';
     this.roundScore =  0;
     this.account = 0;
     this.turn = turn || false;
-    // this.option = option;
+    
+  }
+
+  addPlayerName() {
+    $('.player-1-box').html('<input type="text"></input>')
   }
 
   changeTurn() {}
