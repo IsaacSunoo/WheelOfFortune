@@ -7,7 +7,8 @@ class Player {
     this.account = 0;
   }
 
-  changeTurn() {}
+  changeTurn() {
+  }
 
   buyAVowel() {
     this.roundScore -= 100;
@@ -27,8 +28,6 @@ class Player {
   clearRoundScore() {
     this.roundScore = 0;
   }
-
-
 }
 
   export default Player;

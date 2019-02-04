@@ -22,20 +22,22 @@ var newGameInstance = new Game;
 window.onload = () => {
   newGameInstance.initiateGame();
   newGameInstance.selectRandomPuzzle();
-
   newGameInstance.deconstructPuzzle();
-
-}
-
-players = [
-  new Player($('#player1').val()),
-  new Player($('#player2').val()),
-  new Player($('#player3').val())
-];
+};
 
 
+$('.create-player').on('click', (e) => {
+  e.preventDefault();
 
+  let players = [
+    new Player($('.player-1-box').val()),
+    new Player($('.player-2-box').val()),
+    new Player($('.player-3-box').val())
+  ];
 
-// $(".spin-btn").on("click", () => {
-//   $(".wheel").css("transform", "rotate(4188deg)");
-// })
+  console.log(players);
+});
+
+	
+	
+	
