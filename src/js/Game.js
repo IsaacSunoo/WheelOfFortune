@@ -17,26 +17,40 @@ class Game {
   selectRandomPuzzle() {
     let randomNum = Math.floor(Math.random() * 4);
     if (randomNum === 0) {
-      this.selectRandomQuestion(data.puzzles.one_word_answers);
+      return this.selectRandomQuestion(data.puzzles.one_word_answers);
     } else if (randomNum === 1) {
-      this.selectRandomQuestion(data.puzzles.two_word_answers);
+      return this.selectRandomQuestion(data.puzzles.two_word_answers);
     } else if (randomNum === 2) {
-      this.selectRandomQuestion(data.puzzles.three_word_answers);
+      return this.selectRandomQuestion(data.puzzles.three_word_answers);
     } else {
-      this.selectRandomQuestion(data.puzzles.four_word_answers);
+      return this.selectRandomQuestion(data.puzzles.four_word_answers);
     }
   }
 
   selectRandomQuestion(questions) {
     let selectQuestion = Math.floor(Math.random() * 24);
     let puzzleBank = questions.puzzle_bank;
-    console.log(puzzleBank[selectQuestion]);
+    return puzzleBank[selectQuestion];
+    // console.log(puzzleBank[selectQuestion]);
   }
 
   initiateGame() {
     var domUpdatesInstance = new domUpdates;
 
       domUpdatesInstance.spinWheel()
+
+  }
+
+  deconstructPuzzle() {
+    let currentPuzzle = this.selectRandomPuzzle();
+    let currentAnswerSplit = currentPuzzle.correct_answer.split('');
+
+    console.log(currentPuzzle.correct_answer);
+    console.log(currentAnswerSplit);
+
+  }
+
+  populateGameBoard() {
 
   }
 
@@ -49,10 +63,6 @@ class Game {
   };
 
   loseATurn() {
-
-  };
-
-  choosePuzzle() {
 
   };
 
