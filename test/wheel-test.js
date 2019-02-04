@@ -1,6 +1,9 @@
 import chai from 'chai';
 const expect = chai.expect;
 
+import chai from 'chai';
+const expect = chai.expect;
+
 import Wheel from '../src/js/Wheel';
 
 describe('Wheel', function() {

@@ -5,21 +5,10 @@ class Player {
     this.name = name || 'Player 1';
     this.roundScore =  0;
     this.account = 0;
-    this.turn = turn || false;
-    
   }
 
-  addPlayerName() {
-    let $name1 = `${'.player-1-box'}`;
-    let $name2 = `${'.player-2-box'}`;
-    let $name3 = `${'.player-3-box'}`;
-    
-    for (let i = 1; i < 4; i++){
-      let player
-    }
+  changeTurn() {
   }
-
-  changeTurn() {}
 
   buyAVowel() {
     this.roundScore -= 100;
@@ -39,8 +28,6 @@ class Player {
   clearRoundScore() {
     this.roundScore = 0;
   }
-
-
 }
 
   export default Player;
