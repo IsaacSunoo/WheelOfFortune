@@ -4,9 +4,8 @@ import Data from './data'
 class domUpdates {
 
     spinWheel() {
-  
-    let randomNum = Math.floor(Math.random() * 6);
       
+    let randomNum = Math.floor(Math.random() * 6);
       var color = randomNum;
         switch(color) {
           case 0:
@@ -38,10 +37,19 @@ class domUpdates {
           $(".spin-btn").on("click", () => {
             $(".wheel").css("transform", "rotate(1020deg)");
               });
-      }
-
+            }
+            
+      this.resetWheel();
       this.updateColorValue();
+    
+    }
 
+    resetWheel() {
+      $(".reset-btn").on("click", () => {
+        $(".wheel").css("transform", "rotate(360deg)");
+        console.log('test')
+        this.updateColorValue();
+          });
     }
 
     updateColorValue() {
