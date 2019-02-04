@@ -18,12 +18,13 @@ import './images/Six-Color_Standard_Wheel.png';
 import './images/steering-wheel.svg'
 
 console.log('This is the JavaScript entry file - your code begins here.');
-
 var newGameInstance = new Game;
 window.onload = () => {
   newGameInstance.initiateGame();
   newGameInstance.selectRandomPuzzle();
+
   newGameInstance.deconstructPuzzle();
+
 }
 
 players = [

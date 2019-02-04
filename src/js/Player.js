@@ -1,5 +1,7 @@
+import Game from './Game'
+
 class Player {
-  constructor(name) {
+  constructor(name, turn) {
     this.name = name || 'Player 1';
     this.roundScore =  0;
     this.account = 0;
