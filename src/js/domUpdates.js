@@ -1,4 +1,5 @@
-import Wheel from './Wheel'
+import Wheel from './Wheel';
+import Data from './data'
 
 class domUpdates {
 
@@ -11,7 +12,7 @@ class domUpdates {
     spinWheel() {
   
     let randomNum = Math.floor(Math.random() * 6);
-    console.log(randomNum)
+    
       
       var color = randomNum;
         switch(color) {
@@ -45,6 +46,31 @@ class domUpdates {
             $(".wheel").css("transform", "rotate(1020deg)");
               });
       }
+
+      this.updateColorValue();
+
+    }
+
+    updateColorValue() {
+    let colors = {
+      red: '',
+      orange: '',
+      yellow: '',
+      green: '',
+      blue: '',
+      purple: ''    
+    };
+
+
+
+    for(let i = 0; i < 6; i++){
+      for(var property in colors){
+        let randomNum2 = Math.floor(Math.random() * 22);
+        let colorPoint = Data.wheel[randomNum2];
+        colors[property] = colorPoint;
+      }
+    }
+    console.log(colors)
     }
 
 };
