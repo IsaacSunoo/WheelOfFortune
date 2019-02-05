@@ -1,30 +1,39 @@
-import Wheel from './Wheel.js'
+import Wheel from './Wheel.js';
+import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 import data from './data.js';
-import Player from './Player.js'
 
 class Game {
-  constructor(players, currentPuzzle, round) {
+  constructor(players) {
     this.players = players;
-    this.currentPuzzle = currentPuzzle;
-    this.round = round || 1;
-    this.puzzleLettersArr = [];
+    this.currentAnswer = '';
+    this.currentRound = 1;
     this.currentPlayer = 0;
+    this.currentPuzzle = {};
+    this.puzzleLettersArr = [];
+    this.answerLetters = [];
     this.highestScore = 0;
     this.roundAnswer = '';
 
   };
 
+    initiateGame() {
+      var domUpdatesInstance = new domUpdates;
+
+      domUpdatesInstance.spinWheel()
+
+    }
+
   selectRandomPuzzle() {
     let randomNum = Math.floor(Math.random() * 4);
     if (randomNum === 0) {
-      return this.selectRandomQuestion(data.puzzles.one_word_answers);
+      return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.one_word_answers);
     } else if (randomNum === 1) {
-      return this.selectRandomQuestion(data.puzzles.two_word_answers);
+      return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.two_word_answers);
     } else if (randomNum === 2) {
       return this.selectRandomQuestion(data.puzzles.three_word_answers);
     } else {
-      return this.selectRandomQuestion(data.puzzles.four_word_answers);
+      return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.four_word_answers);
     }
   }
 
@@ -32,39 +41,20 @@ class Game {
     let selectQuestion = Math.floor(Math.random() * 24);
     let puzzleBank = questions.puzzle_bank;
     return puzzleBank[selectQuestion];
-    // console.log(puzzleBank[selectQuestion]);
-  }
-
-  initiateGame() {
-    
-    let player1 = new Player();
-
-    
-    
-    
-    var domUpdatesInstance = new domUpdates;
-
-      domUpdatesInstance.spinWheel()
-
   }
 
   deconstructPuzzle() {
     let currentPuzzle = this.selectRandomPuzzle();
-    let currentAnswerSplit = currentPuzzle.correct_answer.split('');
+    this.currentAnswer = currentPuzzle.correct_answer.toUpperCase();
+    this.puzzleLettersArr = this.currentAnswer.split('');
 
-    console.log(currentPuzzle.correct_answer);
-    console.log(currentAnswerSplit);
-
-  }
-
-  populateGameBoard() {
-
+    console.log(currentPuzzle);
+    console.log('Current Answer: ' + this.currentAnswer);
+    console.log(this.puzzleLettersArr);
   }
 
   quitResetGame() {
-    $(".spin-btn").on("click", () => {
-      $(".wheel").css("transform", "rotate(720deg)");
-        });
+
   };
 
   incrementRound() {
@@ -82,6 +72,21 @@ class Game {
       // Display the players guess on the board if the letter is on the board
     }
 
+  }
+
+  checkPlayerGuess(guess) {
+    if (guess.toUpperCase() === this.currentAnswer.toUpperCase()) {
+      this.players[this.currentPlayer].addTotalScore();
+      this.startNewRound();
+      // Remove the guessed letters from the board
+      // Stubbed out updateCurrentPlayer method to call
+    } else {
+
+    }
+  }
+
+  updateCurrentPlayer() {
+    
   }
 
   chooseConstanant() {
