@@ -2,6 +2,7 @@ import Wheel from './Wheel.js';
 import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 import data from './data.js';
+import Board from './Board.js';
 
 class Game {
   constructor(players) {
@@ -18,8 +19,13 @@ class Game {
   };
 
   initiateGame() {
-    var domUpdatesInstance = new domUpdates;
-    domUpdatesInstance.spinWheel()
+    let board = new Board;
+    let domUpdatesInstance = new domUpdates;
+    let puzzle = this.selectRandomPuzzle();
+    domUpdatesInstance.spinWheel();
+    board.populateGameBoard(puzzle);
+    this.deconstructPuzzle(puzzle);
+    domUpdatesInstance.displayPuzzleCategory(this.retrieveCategory());
   }
 
   selectRandomPuzzle() {
@@ -29,7 +35,7 @@ class Game {
     } else if (randomNum === 1) {
       return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.two_word_answers);
     } else if (randomNum === 2) {
-      return this.selectRandomQuestion(data.puzzles.three_word_answers);
+      return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.three_word_answers);
     } else {
       return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.four_word_answers);
     }
@@ -41,12 +47,9 @@ class Game {
     return puzzleBank[selectQuestion];
   }
 
-  deconstructPuzzle() {
-    let currentPuzzle = this.selectRandomPuzzle();
-    this.currentAnswer = currentPuzzle.correct_answer.toUpperCase();
+  deconstructPuzzle(puzzle) {
+    this.currentAnswer = puzzle.correct_answer.toUpperCase();
     this.puzzleLettersArr = this.currentAnswer.split('');
-
-    console.log(currentPuzzle);
     console.log('Current Answer: ' + this.currentAnswer);
     console.log(this.puzzleLettersArr);
   }
