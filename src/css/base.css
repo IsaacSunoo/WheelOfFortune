@@ -2,10 +2,20 @@ body {
   background-color: pink;
 }
 
-.account-section{
+.account-section {
   display:flex;
   justify-content: space-around;
   margin-top: 15px;
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -35px;
+}
+
+.down-arrow {
+  height: 25px;
 }
 
 .letter-block{
@@ -41,13 +51,14 @@ body {
 
 .key-table {
   display: flex;
-  flex-direction: column;
-
+  justify-content: space-around;
 }
 
 .player-box {
   background-color: aqua;
   padding: 30px 50px 30px 50px;
+  margin: 20px 193px;
+
 }
 
 
@@ -62,6 +73,11 @@ body {
   margin-top: 20px;
 }
 
+.button-section {
+  display: flex;
+  justify-content: center;
+}
+
 .wheel {
     position: absolute;
     text-align: center;
@@ -73,14 +89,13 @@ body {
     margin: 0 5px 5px 0; 
     width: 200px;
     position: relative;
-    margin: 50px auto;
     transition: 5s;
 }
 
 .wheel-section {
   margin-top: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
@@ -94,5 +109,32 @@ body {
   margin-left: 40px;
 
 }
+
+.wheel-red{
+  color: red;
+}
+
+.wheel-orange{
+  color: orange;
+}
+
+.wheel-yellow{
+  color: yellow;
+}
+
+.wheel-green{
+  color: green;
+}
+
+.wheel-blue{
+  color: blue
+}
+
+.wheel-purple{
+  color: purple;
+}
+
+
+
 
 
