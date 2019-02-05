@@ -33,6 +33,14 @@ body {
   height: 300px;
 }
 
+.category-section p {
+  display: flex;
+  justify-content: center;
+  background-color: antiquewhite;
+  font-size: 1.8em;
+  margin-top: 0;
+}
+
 .guess-input {
   width: 400px;
 }
@@ -81,12 +89,12 @@ body {
 .wheel {
     position: absolute;
     text-align: center;
-    animation: spin .8s linear; 
-    display: block; 
-    fill: #223344; 
-    float: left; 
-    height: 200px; 
-    margin: 0 5px 5px 0; 
+    animation: spin .8s linear;
+    display: block;
+    fill: #223344;
+    float: left;
+    height: 200px;
+    margin: 0 5px 5px 0;
     width: 200px;
     position: relative;
     transition: 5s;
