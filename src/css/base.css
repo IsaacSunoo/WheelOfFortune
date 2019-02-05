@@ -1,11 +1,5 @@
 body {
-  background-color: pink;
-}
-
-.account-section {
-  display:flex;
-  justify-content: space-around;
-  margin-top: 15px;
+  background-image: linear-gradient(#94c0dc, #223344);
 }
 
 .arrow-container {
@@ -14,40 +8,58 @@ body {
   margin-bottom: -35px;
 }
 
-.down-arrow {
-  height: 25px;
+
+
+.button-section {
+  display: flex;
+  justify-content: center;
 }
 
-.letter-block{
-  background-color: aqua;
-  height: 50px;
-  width: 50px;
+.category-name {
+  color: #223344;
+}
 
+.const-guess-btn{
+  background-color: #94c0dc;
+  border-style: solid;
+  border-radius: 5%;
+  border-color: #223344;
+  height: 50px;
+}
+
+.down-arrow {
+  height: 25px;
 }
 
 .game-board {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: #94c0dc;
   height: 300px;
+  
 }
 
 .category-section p {
   display: flex;
   justify-content: center;
-  background-color: antiquewhite;
+  background-color: #94c0dc;
   font-size: 1.8em;
   margin-top: 0;
 }
 
 .guess-input {
   width: 400px;
+  background-color: #94c0dc;
+  border-style: solid;
+  border-radius: 5%;
+  border-color: #223344;
 }
+
 
 .guess-section {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin: 20px;
 }
 
@@ -60,6 +72,18 @@ body {
 .key-table {
   display: flex;
   justify-content: space-around;
+  
+}
+
+.letter-block{
+  background-color: #2980b9;
+  height: 50px;
+  width: 50px;
+}
+
+.main-title {
+  color :#223344;
+  font-size: 40px;
 }
 
 .player-box {
@@ -69,36 +93,79 @@ body {
 
 }
 
-
-.player-score {
-  background-color: aquamarine;
-  padding: 10px 50px 10px 50px;
+.player-container {
+  justify-content: center;
+  align-items: center;
+  background-color: #94c0dc;
+  padding: 25px;
+  border-style: solid;
+  border-radius: 5%;
+  border-color: #223344;
 }
+
 
 .player-section{
   display:flex;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
-.button-section {
+.player-score {
   display: flex;
   justify-content: center;
+  padding: 10px;
 }
 
-.wheel {
-    position: absolute;
-    text-align: center;
-    animation: spin .8s linear;
-    display: block;
-    fill: #223344;
-    float: left;
-    height: 200px;
-    margin: 0 5px 5px 0;
-    width: 200px;
-    position: relative;
-    transition: 5s;
+.round-counter {
+  background-color: #94c0dc;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 5%;
+  border-color: #223344;
 }
+
+.quit-btn{
+  background-color: #94c0dc;
+  border-style: solid;
+  border-radius: 5%;
+  border-color: #223344;
+  height: 50px;
+
+}
+
+.vowel-buy-btn{
+  background-color: #94c0dc;
+  border-style: solid;
+  border-radius: 5%;
+  border-color: #223344;
+  height: 50px;
+}
+
+
+.wheel {
+  position: absolute;
+  text-align: center;
+  animation: spin .8s linear;
+  display: block;
+  fill: #223344;
+  height: 200px;
+  margin: 0 5px 5px 0;
+  width: 200px;
+  position: relative;
+  transition: 5s;
+}
+
+.wheel-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #94c0dc;
+  width: 200px;
+  height: 27px;
+  border-style: solid;
+  border-radius: 5%;
+}
+
 
 .wheel-section {
   margin-top: 30px;
@@ -108,13 +175,12 @@ body {
 }
 
 .wheel-container {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: pink;
+  display: flex;
   height: 200px;
-  width: 200px;
+  justify-content: center;
   margin-left: 40px;
+  width: 200px;
 }
 
 .letter-block {

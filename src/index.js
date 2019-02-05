@@ -2,7 +2,7 @@
 // Do not delete or rename this file
 
 // Tell webpack to use a CSS file
-import './css/base.css';
+
 
 // Tell webpack to use these js files
 
@@ -16,6 +16,8 @@ import Board from './js/Board.js';
 //  Tell webpack to use an image (link to it in index.html)
 import './images/down.png';
 import './images/Six-Color_Standard_Wheel.png';
+
+import './css/base.css';
 
 $('.create-player').on('click', (e) => {
   e.preventDefault();
