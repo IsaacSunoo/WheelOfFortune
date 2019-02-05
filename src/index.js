@@ -23,7 +23,9 @@ var newGameInstance = new Game;
 window.onload = () => {
   newGameInstance.initiateGame();
   newGameInstance.selectRandomPuzzle();
-}
+  newGameInstance.deconstructPuzzle();
+};
+
 
 $('.create-player').on('click', (e) => {
   e.preventDefault();
@@ -35,17 +37,7 @@ $('.create-player').on('click', (e) => {
   ];
 
   console.log(players);
-
-
-})
-
-
-
-
-
-// $(".spin-btn").on("click", () => {
-//   $(".wheel").css("transform", "rotate(4188deg)");
-// })
+});
 
 	
 	
