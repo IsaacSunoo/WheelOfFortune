@@ -1,5 +1,5 @@
 body {
-  background-color: pink;
+  background-color: #2980b9;
 }
 
 .account-section {
@@ -14,35 +14,40 @@ body {
   margin-bottom: -35px;
 }
 
+.button-section {
+  display: flex;
+  justify-content: center;
+}
+
+.category-name {
+  color: #223344;
+}
+
 .down-arrow {
   height: 25px;
 }
 
-.letter-block{
-  background-color: aqua;
-  height: 50px;
-  width: 50px;
-
-}
 
 .game-board {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: #94c0dc;
   height: 300px;
+  
 }
 
 .category-section p {
   display: flex;
   justify-content: center;
-  background-color: antiquewhite;
+  background-color: #94c0dc;
   font-size: 1.8em;
   margin-top: 0;
 }
 
 .guess-input {
   width: 400px;
+  background-color: #94c0dc;
 }
 
 .guess-section {
@@ -60,6 +65,18 @@ body {
 .key-table {
   display: flex;
   justify-content: space-around;
+  
+}
+
+.letter-block{
+  background-color: #2980b9;
+  height: 50px;
+  width: 50px;
+}
+
+.main-title {
+  color: #94c0dc;
+  font-size: 40px;
 }
 
 .player-box {
@@ -68,7 +85,6 @@ body {
   margin: 20px 193px;
 
 }
-
 
 .player-score {
   background-color: aquamarine;
@@ -81,9 +97,9 @@ body {
   margin-top: 20px;
 }
 
-.button-section {
-  display: flex;
-  justify-content: center;
+.round-counter {
+  background-color: #94c0dc;
+  padding: 10px;
 }
 
 .wheel {
@@ -98,6 +114,15 @@ body {
     width: 200px;
     position: relative;
     transition: 5s;
+}
+
+.wheel-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #94c0dc;
+  width: 200px;
+  height: 27px;
 }
 
 .wheel-section {
