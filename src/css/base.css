@@ -181,7 +181,10 @@ body {
   justify-content: center;
   margin-left: 40px;
   width: 200px;
+}
 
+.letter-block {
+  text-align: center;
 }
 
 .wheel-red{

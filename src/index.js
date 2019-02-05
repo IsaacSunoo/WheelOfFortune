@@ -17,26 +17,17 @@ import Board from './js/Board.js';
 import './images/down.png';
 import './images/Six-Color_Standard_Wheel.png';
 
-
 import './css/base.css';
-
-let game = new Game;
-window.onload = () => {
-  game.initiateGame();
-  game.selectRandomPuzzle();
-  game.deconstructPuzzle();
-};
-
 
 $('.create-player').on('click', (e) => {
   e.preventDefault();
-
+  let game = new Game;
+  game.initiateGame();
   let players = [
     new Player($('.player-1-box').val()),
     new Player($('.player-2-box').val()),
     new Player($('.player-3-box').val())
   ];
-
   console.log(players);
 });
 

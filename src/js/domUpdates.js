@@ -81,6 +81,8 @@ class domUpdates {
   displayNewRound(currentRound, players, currentPlayer) {
     clearPuzzleBoard();
     this.updateRound(currentRound);
+    this.updatePlayerInfo(players);
+    this.displayPlayerTurn(currentPlayer);
 
   }
 
@@ -92,11 +94,21 @@ class domUpdates {
     $('.category-name').text(currentCategory);
   }
 
-  displayPlayerTurn(currentPlayer) {
-    // add class to indicate players turn
-    $(`player-${currentPlayer}`-box).addClass('');
+  updatePlayerInfo(players) {
+
   }
 
+  displayPlayerTurn(currentPlayer) {
+    // add class to indicate players turn
+    $(`player-${currentPlayer}-box`).addClass('');
+  }
+
+  displayRoundPhrase(board, answer, idx) {
+    let word = answer.correct_answer.split('-').join(' ').toUpperCase();
+    for (let i = idx; i < idx + word.length; i++) {
+      $('.letter-block').eq(i).text(word.split('')[i - idx]);
+    }
+  }
 
 
 }
