@@ -11,19 +11,17 @@ import domUpdates from'./js/domUpdates.js';
 import Game from './js/Game.js';
 import Wheel from './js/Wheel.js';
 import data from './js/data.js';
+import Board from './js/Board.js';
 
 //  Tell webpack to use an image (link to it in index.html)
 import './images/down.png';
 import './images/Six-Color_Standard_Wheel.png';
 
-
-
-console.log('This is the JavaScript entry file - your code begins here.');
-var newGameInstance = new Game;
+let game = new Game;
 window.onload = () => {
-  newGameInstance.initiateGame();
-  newGameInstance.selectRandomPuzzle();
-  newGameInstance.deconstructPuzzle();
+  game.initiateGame();
+  game.selectRandomPuzzle();
+  game.deconstructPuzzle();
 };
 
 
@@ -39,6 +37,6 @@ $('.create-player').on('click', (e) => {
   console.log(players);
 });
 
-	
-	
-	
+
+
+

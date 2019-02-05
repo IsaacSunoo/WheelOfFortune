@@ -28,6 +28,11 @@ class Player {
   clearRoundScore() {
     this.roundScore = 0;
   }
+
+  addTotalScore() {
+    this.totalScore += this.roundScore;
+  }
+
 }
 
   export default Player;
