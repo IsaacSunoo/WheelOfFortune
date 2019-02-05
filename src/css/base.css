@@ -8,8 +8,6 @@ body {
   margin-bottom: -35px;
 }
 
-
-
 .button-section {
   display: flex;
   justify-content: center;
@@ -17,6 +15,7 @@ body {
 
 .category-name {
   color: #223344;
+  padding: 10px;
 }
 
 .const-guess-btn{
@@ -46,6 +45,16 @@ body {
   background-color: #94c0dc;
   font-size: 1.8em;
   margin-top: 0;
+}
+
+.choose-letter{
+  align-items: center;
+  background-color: #223344;
+  color: #94c0dc;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+
 }
 
 .guess-input {
@@ -86,10 +95,10 @@ body {
   font-size: 40px;
 }
 
-.player-box {
-  background-color: aqua;
-  padding: 30px 50px 30px 50px;
-  margin: 20px 193px;
+.player-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -101,6 +110,7 @@ body {
   border-style: solid;
   border-radius: 5%;
   border-color: #223344;
+  width: 150px;
 }
 
 
@@ -116,12 +126,40 @@ body {
   padding: 10px;
 }
 
+.pop-ups {
+  display: flex;
+  justify-content: center;
+}
+
 .round-counter {
   background-color: #94c0dc;
   padding: 10px;
   border-style: solid;
   border-radius: 5%;
   border-color: #223344;
+}
+
+.choose-consonant {
+  display: grid;
+  visibility: hidden;
+  grid-template-columns: 33% 33% 33%;
+  height: 50%;
+  width: 50%;
+  background-color: #2980b9;
+  position: absolute;
+  margin-top: 450px;
+}
+
+.choose-vowel{
+  display: grid;
+  visibility: hidden;
+  grid-template-columns: 33% 33% 33%;
+  height: 50%;
+  width: 50%;
+  background-color: #2980b9;
+  position: absolute;
+  margin-top: 450px;
+  font-size: 25px;
 }
 
 .quit-btn{
@@ -143,7 +181,6 @@ body {
 
 
 .wheel {
-  position: absolute;
   text-align: center;
   animation: spin .8s linear;
   display: block;
@@ -151,7 +188,6 @@ body {
   height: 200px;
   margin: 0 5px 5px 0;
   width: 200px;
-  position: relative;
   transition: 5s;
 }
 
