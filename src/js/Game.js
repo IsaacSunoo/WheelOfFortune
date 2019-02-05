@@ -9,7 +9,7 @@ class Game {
     this.players = [];
     this.currentAnswer = '';
     this.currentRound = 1;
-    this.currentPlayer = 0;
+    this.currentPlayer = 1;
     this.currentPuzzle = {};
     this.puzzleLettersArr = [];
     this.answerLetters = [];
@@ -26,6 +26,7 @@ class Game {
     board.populateGameBoard(puzzle);
     this.deconstructPuzzle(puzzle);
     domUpdatesInstance.displayPuzzleCategory(this.retrieveCategory());
+    domUpdatesInstance.displayPlayerTurn(this.currentPlayer);
   }
 
   selectRandomPuzzle() {

@@ -100,13 +100,17 @@ class domUpdates {
 
   displayPlayerTurn(currentPlayer) {
     // add class to indicate players turn
-    $(`player-${currentPlayer}-box`).addClass('');
+    $(`player-${currentPlayer}-container`).addClass('current-turn');
+    console.log(`player-${currentPlayer}-container`);
+
   }
 
   displayRoundPhrase(board, answer, idx) {
     let word = answer.correct_answer.split('-').join(' ').toUpperCase();
     for (let i = idx; i < idx + word.length; i++) {
       $('.letter-block').eq(i).text(word.split('')[i - idx]);
+      console.log(idx);
+
     }
   }
 
