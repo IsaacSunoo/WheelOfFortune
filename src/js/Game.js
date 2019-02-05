@@ -5,7 +5,7 @@ import data from './data.js';
 
 class Game {
   constructor(players) {
-    this.players = players;
+    this.players = [];
     this.currentAnswer = '';
     this.currentRound = 1;
     this.currentPlayer = 0;
@@ -17,12 +17,10 @@ class Game {
 
   };
 
-    initiateGame() {
-      var domUpdatesInstance = new domUpdates;
-
-      domUpdatesInstance.spinWheel()
-
-    }
+  initiateGame() {
+    var domUpdatesInstance = new domUpdates;
+    domUpdatesInstance.spinWheel()
+  }
 
   selectRandomPuzzle() {
     let randomNum = Math.floor(Math.random() * 4);
@@ -65,13 +63,33 @@ class Game {
 
   };
 
-  checkLetterPresent(letter) {
+  retrieveCategory() {
+    let category = this.currentPuzzle.category;
+    return category;
+  }
+
+  checkLetterGuess(letter) {
     if (this.roundAnswer.includes(letter)) {
-      this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currenSpin);
+      this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
+      determineBonusRound();
+      }
       // Change players round score in dom to update player
       // Display the players guess on the board if the letter is on the board
     }
 
+  checkVowelGuess(guess) {
+    buyAVowel();
+    if (guess.toUpperCase() === this.currentAnswer) {
+      // display vowels on board
+    }
+  };
+
+  determineBonusRound() {
+    if (currentRound == 4) {
+      this.players.forEach(player => {
+        player.clearRoundScore();
+      });
+    }
   }
 
   checkPlayerGuess(guess) {
@@ -86,35 +104,22 @@ class Game {
   }
 
   updateCurrentPlayer() {
-    
+
   }
-
-  chooseConstanant() {
-
-  };
-
-  checkConstanant() {
-
-  };
-
-  checkVowel() {
-
-  };
 
   updateAccount() {
 
   };
 
-  determineWinner() {
-
-  };
-
   startNewRound() {
     // increment round by one and clear player round scores
-    this.currentRound++;
+    // this.currentRound++;
     this.players.forEach(player => {
-      clearRoundScore();
+      player.clearRoundScore();
     });
+    domUpdates.displayNewRound(++this.currentRound, this.players, this.currentPlayer);
+
+
     // Display new round info on the dom (round number and winner players score)
     // Determine if round is regular round or bonus round (4 being the bonus)
     // After 3 rounds and bonus round display the winner

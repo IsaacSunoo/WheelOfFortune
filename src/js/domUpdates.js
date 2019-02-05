@@ -4,7 +4,7 @@ import Data from './data'
 class domUpdates {
 
     spinWheel() {
-      
+
     let randomNum = Math.floor(Math.random() * 6);
       var color = randomNum;
         switch(color) {
@@ -38,10 +38,10 @@ class domUpdates {
             $(".wheel").css("transform", "rotate(1020deg)");
               });
             }
-            
+
       this.resetWheel();
       this.updateColorValue();
-    
+
     }
 
     resetWheel() {
@@ -53,15 +53,13 @@ class domUpdates {
     }
 
     updateColorValue() {
-    
-    
       let colors = {
       red: '',
       orange: '',
       yellow: '',
       green: '',
       blue: '',
-      purple: ''    
+      purple: ''
     };
 
     for(let i = 0; i < 6; i++){
@@ -80,13 +78,27 @@ class domUpdates {
     $('.wheel-purple').text(`Purple: ${colors.purple}`)
     }
 
-};
+  displayNewRound(currentRound, players, currentPlayer) {
+    clearPuzzleBoard();
+    this.updateRound(currentRound);
+
+  }
+
+  updateRound(round) {
+    $('.round-counter').text(round);
+  }
+
+  displayPuzzleCategory(currentCategory) {
+    $('.category-name').text(currentCategory);
+  }
+
+  displayPlayerTurn(currentPlayer) {
+    // add class to indicate players turn
+    $(`player-${currentPlayer}`-box).addClass('');
+  }
+
+
+
+}
 
 export default domUpdates;
-
-// red 720
-// purple 780
-// blue 840
-// green 900
-// yellow 960
-// orange 1020
