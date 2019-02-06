@@ -20,11 +20,11 @@ import './images/Fortnite-bkgrd.jpg';
 import './css/base.css';
 
 
-
+let game;
 $('.create-player').on('click', e => {
   e.preventDefault();
   domUpdates.hideStartPage();
-  let game = new Game;
+  game = new Game;
   game.initiateGame();
   let players = [
     new Player($('.player-field-1').val()),
@@ -32,16 +32,30 @@ $('.create-player').on('click', e => {
     new Player($('.player-field-3').val())
   ];
   domUpdates.displayPlayerNames(players);
-  console.log(players);
 });
 
 $('.const-guess-btn').on('click', e => {
   domUpdates.displayBuyConsonant();
 });
 
+$('.spin-btn').on('click', e => {
+  setTimeout(() => domUpdates.displayBuyConsonant(), 6400);
+});
+
 $('.vowel-buy-btn').on('click', e => {
   domUpdates.displayBuyVowel();
 });
+
+$('.choose-letter').on('click', e => {
+  game.checkLetterGuess($(event.target).text());
+  console.log($(event.target).text());
+
+})
+
+$('.choose-vowel-letter').on('click', e => {
+  $(event.target).text();
+  console.log($(event.target).text());
+})
 
 
 

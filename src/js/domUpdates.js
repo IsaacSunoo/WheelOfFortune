@@ -44,7 +44,7 @@ const domUpdates = {
     resetWheel() {
       $(".reset-btn").on("click", () => {
         $(".wheel").css("transform", "rotate(360deg)");
-        console.log('test')
+        console.log('test');
         this.updateColorValue();
           });
     },
@@ -66,13 +66,13 @@ const domUpdates = {
         colors[property] = colorPoint;
       }
     }
-    console.log(colors)
-    $('.wheel-red').text(`Red: ${colors.red}`)
-    $('.wheel-orange').text(`Orange: ${colors.orange}`)
-    $('.wheel-yellow').text(`Yellow: ${colors.yellow}`)
-    $('.wheel-green').text(`Green: ${colors.green}`)
-    $('.wheel-blue').text(`Blue: ${colors.blue}`)
-    $('.wheel-purple').text(`Purple: ${colors.purple}`)
+    console.log(colors);
+    $('.wheel-red').text(`Red: ${colors.red}`);
+    $('.wheel-orange').text(`Orange: ${colors.orange}`);
+    $('.wheel-yellow').text(`Yellow: ${colors.yellow}`);
+    $('.wheel-green').text(`Green: ${colors.green}`);
+    $('.wheel-blue').text(`Blue: ${colors.blue}`);
+    $('.wheel-purple').text(`Purple: ${colors.purple}`);
     },
 
   displayNewRound(currentRound, players, currentPlayer) {
@@ -92,7 +92,15 @@ const domUpdates = {
   },
 
   updatePlayerInfo(players) {
-
+    // $(`.player-${players}`)
+    players.forEach((player, idx) => {
+      $('.player-info').append(
+        `<div class="player-info-toggle"> <p class="player-name player-name-${i}"> ${
+          player.playerName
+          } </p><p class="round-score player${i}-score"> $${
+          player.roundScore
+          } </p> <p class="total-score"> Account Total: $${player.totalScore} </p></div>`)
+      });
   },
 
   updateRoundScore(player, roundScore) {
@@ -101,6 +109,10 @@ const domUpdates = {
 
   displayPlayerTurn(currentPlayer) {
     $(`.player-${currentPlayer}-container`).addClass('current-turn');
+  },
+
+  removePlayerTurn(currentPlayer) {
+    $(`.player-${currentPlayer}-container`).removeClass('current-turn');
   },
 
   displayRoundPhrase(board, answer, idx) {
@@ -138,9 +150,14 @@ const domUpdates = {
     $('.winner-name').text(`${winnerPlayer} won the round!`);
   },
 
-  populateHiddenLetters(letters) {
-    $('.letter-block')
+  populateHiddenLetters(letter, rowColumn) {
+    $(`.block-${rowColumn}`).append(`<p class="hidden" data-values=${letter}>${letter}</p>`).addClass('answer-block');
   },
+
+  showHyphen(blockNumber) {
+    $(`.block-${blockNumber}`).children().removeClass('hidden');
+    $(`.block-${blockNumber}`).addClass('hidden');
+  }
 }
 
 export default domUpdates;
