@@ -22,13 +22,13 @@ class Game {
 
   initiateGame() {
     let board = new Board;
-    let domUpdatesInstance = new domUpdates;
     let puzzle = this.selectRandomPuzzle();
-    domUpdatesInstance.spinWheel();
+    domUpdates.spinWheel();
     board.populateGameBoard(puzzle);
     this.deconstructPuzzle(puzzle);
-    domUpdatesInstance.displayPuzzleCategory(this.retrieveCategory());
-    domUpdatesInstance.displayPlayerTurn(this.currentPlayer);
+    domUpdates.displayPuzzleCategory(this.retrieveCategory());
+    domUpdates.displayPlayerTurn(this.currentPlayer);
+    domUpdates.updateRound(this.currentRound);
   }
 
   selectRandomPuzzle() {
@@ -67,27 +67,25 @@ class Game {
   }
 
   checkLetterGuess(letter) {
-    let domUpdateInstance = new domUpdates();
     if (this.roundAnswer.includes(letter)) {
       this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
       determineBonusRound();
-      domUpdateInstance.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
-      domUpdateInstance.displayCorrectLetter(letter);
+      domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+      domUpdates.displayCorrectLetter(letter);
     } else {
         this.updateCurrentPlayer();
       }
     }
 
   checkVowelGuess(guess) {
-    let domUpdateInstance = new domUpdates();
     if (this.roundAnswer.includes(letter)) {
       this.players[this.currentPlayer].buyAVowel();
       this.determineBonusRound();
-      domUpdateInstance.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
-      domUpdateInstance.displayCorrectLetter(letter);
+      domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+      domUpdates.displayCorrectLetter(letter);
     } else {
       this.players[this.currentPlayer].buyAVowel();
-      domUpdateInstance.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+      domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
       this.updateCurrentPlayer();
     }
   };
@@ -130,13 +128,12 @@ class Game {
     } else {
       let board = new Board();
       this.newRoundWheel = new Wheel();
-      let domUpdateInstance = new domUpdates();
       let puzzle = this.selectRandomPuzzle();
-      domUpdateInstance.spinWheel();
+      domUpdates.spinWheel();
       board.populateGameBoard(puzzle);
       this.deconstructPuzzle(puzzle);
-      domUpdateInstance.displayPuzzleCategory(this.retrieveCategory());
-      domUpdateInstance.displayPlayerTurn(this.currentPlayer);
+      domUpdates.displayPuzzleCategory(this.retrieveCategory());
+      domUpdates.displayPlayerTurn(this.currentPlayer);
     }
     console.log(this.currentAnswer);
   }

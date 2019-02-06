@@ -12,7 +12,6 @@ class Board {
     }
 
     populateGameBoard(puzzle) {
-        let instanceDomUpdates = new domUpdates();
         let idx = 0
         this.puzzleData = puzzle;
 
@@ -27,7 +26,7 @@ class Board {
 
                 break;
         }
-        instanceDomUpdates.displayRoundPhrase(this, this.puzzleData, idx);
+        domUpdates.displayRoundPhrase(this, this.puzzleData, idx);
     }
 
 
