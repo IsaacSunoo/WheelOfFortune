@@ -121,8 +121,6 @@ body {
     margin-top: 25px;
 };
 
-
-
 .main-title {
   color :#223344;
   font-size: 40px;
@@ -210,11 +208,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80%;
-  width: 50%;
+  height: 90%;
+  width: 60%;
   background-color: #2980b9;
   position: absolute;
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
 .quit-btn{
@@ -232,7 +230,6 @@ body {
   border-color: #223344;
   height: 50px;
 }
-
 
 .wheel {
   text-align: center;
@@ -256,12 +253,12 @@ body {
   border-radius: 5%;
 }
 
-
 .wheel-section {
   margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 0;
 }
 
 .wheel-container {

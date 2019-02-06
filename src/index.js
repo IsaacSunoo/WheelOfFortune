@@ -16,13 +16,14 @@ import Board from './js/Board.js';
 //  Tell webpack to use an image (link to it in index.html)
 import './images/down.png';
 import './images/Six-Color_Standard_Wheel.png';
+import './images/Fortnite-bkgrd.jpg';
 import './css/base.css';
 
 
 
-$('.create-player').on('click', (e) => {
+$('.create-player').on('click', e => {
   e.preventDefault();
-  $('.start-page').css("visibility","hidden");
+  domUpdates.hideStartPage();
   let game = new Game;
   game.initiateGame();
   let players = [
@@ -33,6 +34,15 @@ $('.create-player').on('click', (e) => {
   domUpdates.displayPlayerNames(players);
   console.log(players);
 });
+
+$('.const-guess-btn').on('click', e => {
+  domUpdates.displayBuyConsonant();
+});
+
+$('.vowel-buy-btn').on('click', e => {
+  domUpdates.displayBuyVowel();
+});
+
 
 
 

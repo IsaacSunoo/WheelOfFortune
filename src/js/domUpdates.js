@@ -112,17 +112,21 @@ const domUpdates = {
   },
 
   displayBuyConsonant() {
-    $consonantButton = $('.const-guess-btn');
-    $consonantScreen = $('.choose-consonant');
-    $consonantButton.on('click', function () {
-      $consonantScreen.css("visibility", "visible");
-    });
+    $('.choose-consonant').css("visibility", "visible");
+  },
+
+  displayBuyVowel() {
+    $('.choose-vowel').css("visibility", "visible");
   },
 
   displayPlayerNames(players) {
     players.forEach((player, idx) => {
       $(`.player-${idx+1}-name`).text(`${player.name}`);
     });
+  },
+
+  hideStartPage() {
+    $('.start-page').css("visibility", "hidden");
   },
 
   resetGameBoard() {
