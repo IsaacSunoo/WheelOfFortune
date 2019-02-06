@@ -3,42 +3,41 @@ import Data from './data';
 
 const domUpdates = {
 
-    spinWheel() {
-    let randomNum = Math.floor(Math.random() * 6);
-      var color = randomNum;
-        switch(color) {
+    spinWheel(color) {
+      console.log(color)
+      this.updateColorValue();  
+      switch(color) {
           case 0:
-          $(".spin-btn").on("click", () => {
+
             $(".wheel").css("transform", "rotate(720deg)");
-              });
+     
           break;
           case 1:
-          $(".spin-btn").on("click", () => {
+          
             $(".wheel").css("transform", "rotate(780deg)");
-              });
+              // });
           break;
           case 2:
-          $(".spin-btn").on("click", () => {
+          
             $(".wheel").css("transform", "rotate(840deg)");
-              });
+              // });
           break;
           case 3:
-          $(".spin-btn").on("click", () => {
+          
             $(".wheel").css("transform", "rotate(900deg)");
-              });
+              // });
           break;
           case 4:
-          $(".spin-btn").on("click", () => {
+          
             $(".wheel").css("transform", "rotate(960deg)");
-              });
+              // });
           break;
           case 5:
-          $(".spin-btn").on("click", () => {
+          
             $(".wheel").css("transform", "rotate(1020deg)");
-              });
+           
             }
       this.resetWheel();
-      this.updateColorValue();
     },
 
     resetWheel() {
@@ -58,6 +57,7 @@ const domUpdates = {
       blue: '',
       purple: ''
     };
+    
 
     for(let i = 0; i < 6; i++){
       for(var property in colors){
