@@ -44,7 +44,8 @@ body {
   margin-top: 0;
 }
 
-.choose-letter{
+.choose-letter,
+.choose-vowel-letter {
   align-items: center;
   background-color: #223344;
   color: #94c0dc;
@@ -62,6 +63,7 @@ body {
   background-color: #2980b9;
   position: absolute;
   margin-top: 450px;
+  z-index: 1;
 }
 
 .choose-vowel{
@@ -274,6 +276,16 @@ body {
   background-color: #2980b9;
   height: 50px;
   width: 50px;
+  text-align: center;
+  font-weight: 900;
+}
+
+.answer-block {
+  background-color: white;
+}
+
+.hyphen-block {
+  background-color: #2980b9;
 }
 
 .current-turn {
@@ -284,11 +296,6 @@ body {
   animation-timing-function: ease-in-out;
   background-color: gold;
   color: navy;
-}
-
-.letter-block {
-  text-align: center;
-  font-weight: 900;
 }
 
 .hidden {

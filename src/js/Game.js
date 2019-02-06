@@ -25,7 +25,7 @@ class Game {
     let puzzle = this.selectRandomPuzzle();
     domUpdates.spinWheel();
     board.populateGameBoard(puzzle);
-    this.deconstructPuzzle(puzzle);
+    // this.deconstructPuzzle(puzzle);
     domUpdates.displayPuzzleCategory(this.retrieveCategory());
     domUpdates.displayPlayerTurn(this.currentPlayer);
     domUpdates.updateRound(this.currentRound);
@@ -47,15 +47,16 @@ class Game {
   selectRandomQuestion(questions) {
     let selectQuestion = Math.floor(Math.random() * 24);
     let puzzleBank = questions.puzzle_bank;
+    console.log(puzzleBank[selectQuestion]);
     return puzzleBank[selectQuestion];
   }
 
-  deconstructPuzzle(puzzle) {
-    this.currentAnswer = puzzle.correct_answer.toUpperCase();
-    this.puzzleLettersArr = this.currentAnswer.split('');
-    // console.log('Current Answer: ' + this.currentAnswer);
-    // console.log(this.puzzleLettersArr);
-  }
+  // deconstructPuzzle(puzzle) {
+  //   this.currentAnswer = puzzle.correct_answer.toUpperCase();
+  //   this.puzzleLettersArr = this.currentAnswer.split('');
+  //   // console.log('Current Answer: ' + this.currentAnswer);
+  //   // console.log(this.puzzleLettersArr);
+  // }
 
   incrementRound() {
     this.round += round;
@@ -66,8 +67,9 @@ class Game {
     return category;
   }
 
-  checkLetterGuess(letter) {
-    if (this.roundAnswer.includes(letter)) {
+  checkLetterGuess(guess) {
+    console.log(this.roundAnswer);
+    if (this.roundAnswer.includes(guess)) {
       this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
       determineBonusRound();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
@@ -78,11 +80,11 @@ class Game {
     }
 
   checkVowelGuess(guess) {
-    if (this.roundAnswer.includes(letter)) {
+    if (this.roundAnswer.includes(guess)) {
       this.players[this.currentPlayer].buyAVowel();
       this.determineBonusRound();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
-      domUpdates.displayCorrectLetter(letter);
+      domUpdates.displayCorrectLetter(guess);
     } else {
       this.players[this.currentPlayer].buyAVowel();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
@@ -109,6 +111,13 @@ class Game {
   }
 
   updateCurrentPlayer() {
+    domUpdates.removePlayerTurn(this.currentPlayer);
+    if (this.currentPlayer === 3) {
+      this.currentPlayer = 1;
+    } else {
+      this.currentPlayer++;
+    }
+    domUpdates.displayPlayerTurn(this.currentPlayer);
 
   }
 
@@ -156,7 +165,6 @@ class Game {
   displayBonusLetters() {
     let vowels = ['a', 'e', 'i', 'o', 'u'];
     let skipConsonant = false;
-
   }
 
 
