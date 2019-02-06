@@ -14,14 +14,14 @@ class Player {
     this.roundScore -= 100;
   }
 
-  addToPlayerScore(roundValue) {
-    // conditional if player gets bankrupt, lost turn, or a value to add to round score
-    if (roundValue === 'LOSE A TURN' ) {
-      // Skip turn on player
+  addToPlayerScore(spinValue) {
+    if (roundValue === 'LOSE A TURN') {
+      game.updateCurrentPlayer();
     } else if (roundValue === 'BANKRUPT') {
-      // Set player round score to 0
+      this.roundScore();
+      game.updateCurrentPlayer();
     } else {
-      this.roundScore += roundValue;
+      this.roundScore += spinValue;
     }
   }
 
