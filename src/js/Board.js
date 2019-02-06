@@ -15,7 +15,7 @@ class Board {
         let instanceDomUpdates = new domUpdates();
         let idx = 0
         this.puzzleData = puzzle;
-        console.log('puzzle answer: ', this.puzzleData.correct_answer);
+        // console.log('puzzle answer: ', this.puzzleData.correct_answer);
 
         switch (this.puzzleData.number_of_words) {
           case 1:
@@ -25,7 +25,7 @@ class Board {
             break;
           case 3:
             case 4:
-                
+
                 break;
         }
 
