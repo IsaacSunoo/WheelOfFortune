@@ -1,5 +1,5 @@
 import Wheel from './Wheel';
-import Data from './data'
+import Data from './data';
 
 class domUpdates {
 
@@ -112,6 +112,15 @@ class domUpdates {
       console.log(idx);
 
     }
+  }
+
+  displayBuyConsonant(){
+    $consonantButton = $('.const-guess-btn');
+    $consonantScreen = $('.choose-consonant');
+    $consonantButton.on('click', function() {
+      $consonantScreen.css("visibility", "visible")
+    
+    })
   }
 
 
