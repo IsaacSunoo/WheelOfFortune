@@ -115,13 +115,13 @@ const domUpdates = {
     $(`.player-${currentPlayer}-container`).removeClass('current-turn');
   },
 
-  displayRoundPhrase(board, answer, idx) {
-    let word = answer.correct_answer.split('-').join(' ').toUpperCase();
-    for (let i = idx; i < idx + word.length; i++) {
-      $('.letter-block').eq(i).text(word.split('')[i - idx]);
-      // console.log(idx);
-    }
-  },
+  // displayRoundPhrase(board, answer, idx) {
+  //   let word = answer.correct_answer.split('-').join(' ').toUpperCase();
+  //   for (let i = idx; i < idx + word.length; i++) {
+  //     $('.letter-block').eq(i).text(word.split('')[i - idx]).addClass('answer-block');
+  //     console.log(idx);
+  //   }
+  // },
 
   displayBuyConsonant() {
     $('.choose-consonant').css("visibility", "visible");
@@ -150,8 +150,11 @@ const domUpdates = {
     $('.winner-name').text(`${winnerPlayer} won the round!`);
   },
 
-  populateHiddenLetters(letter, rowColumn) {
-    $(`.block-${rowColumn}`).append(`<p class="hidden" data-values=${letter}>${letter}</p>`).addClass('answer-block');
+  displayCorrectLetter(letter) {
+    if ($('p').text().includes(letter)) {
+      $(`p[data-values=${letter}`).removeClass('hidden');
+    }
+
   },
 
   showHyphen(blockNumber) {

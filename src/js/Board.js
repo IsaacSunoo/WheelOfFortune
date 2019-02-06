@@ -21,7 +21,15 @@ class Board {
         // let rowFour = 41;
         // console.log(puzzle);
         // console.log(puzzle.correct_answer);
-        this.deconstructPuzzle(puzzle);
+        this.answerLetters = this.deconstructPuzzle(puzzle);
+        this.answerLetters.forEach((letter, idx) => {
+            if (letter === ' ') {
+                $('.letter-block').eq(idx).append(`<p class="hidden" data-values=${letter}>${letter}</p>`);
+            } else {
+                $('.letter-block').eq(idx).append(`<p class="hidden" data-values=${letter}>${letter}</p>`).addClass('answer-block');
+            }
+        });
+
         // console.log(this.answerLetters);
         // console.log('WC: ', wordCount);
 
@@ -39,8 +47,6 @@ class Board {
 
                 break;
         }
-        domUpdates.displayRoundPhrase(this, this.puzzleData, idx);
-
 
     //     if (this.characterCount < 7 && puzzle.correct_answer === 1) {
     //         rowTwo = 15;
@@ -58,11 +64,9 @@ class Board {
     //     });
     }
 
-
-
     deconstructPuzzle(puzzle) {
         let currentAnswer = puzzle.correct_answer.toUpperCase();
-        this.answerLetters = currentAnswer.split('');
+        return this.answerLetters = currentAnswer.split('');
     }
 
     checkHyphens(character, boardPosition) {
