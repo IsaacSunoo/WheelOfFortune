@@ -5,14 +5,14 @@ class Player {
     this.name = name || 'Player 1';
     this.roundScore =  0;
     this.account = 0;
-  }
+  };
 
   changeTurn() {
-  }
+  };
 
   buyAVowel() {
     this.roundScore -= 100;
-  }
+  };
 
   addToPlayerScore(spinValue) {
     if (roundValue === 'LOSE A TURN') {
@@ -23,15 +23,15 @@ class Player {
     } else {
       this.roundScore += spinValue;
     }
-  }
+  };
 
   clearRoundScore() {
     this.roundScore = 0;
-  }
+  };
 
   addTotalScore() {
     this.totalScore += this.roundScore;
-  }
+  };
 
 }
 
