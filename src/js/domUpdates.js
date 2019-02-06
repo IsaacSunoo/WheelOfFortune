@@ -1,7 +1,7 @@
 import Wheel from './Wheel';
 import Data from './data';
 
-class domUpdates {
+const domUpdates = {
 
     spinWheel() {
     let randomNum = Math.floor(Math.random() * 6);
@@ -37,11 +37,9 @@ class domUpdates {
             $(".wheel").css("transform", "rotate(1020deg)");
               });
             }
-
       this.resetWheel();
       this.updateColorValue();
-
-    }
+    },
 
     resetWheel() {
       $(".reset-btn").on("click", () => {
@@ -49,7 +47,7 @@ class domUpdates {
         console.log('test')
         this.updateColorValue();
           });
-    }
+    },
 
     updateColorValue() {
       let colors = {
@@ -75,7 +73,7 @@ class domUpdates {
     $('.wheel-green').text(`Green: ${colors.green}`)
     $('.wheel-blue').text(`Blue: ${colors.blue}`)
     $('.wheel-purple').text(`Purple: ${colors.purple}`)
-    }
+    },
 
   displayNewRound(currentRound, players, currentPlayer) {
     clearPuzzleBoard();
@@ -83,27 +81,27 @@ class domUpdates {
     this.updatePlayerInfo(players);
     this.displayPlayerTurn(currentPlayer);
 
-  }
+  },
 
   updateRound(round) {
-    $('.round-counter').text(round);
-  }
+    $('.round-counter').text(`Round #${round}`);
+  },
 
   displayPuzzleCategory(currentCategory) {
     $('.category-name').text(currentCategory);
-  }
+  },
 
   updatePlayerInfo(players) {
 
-  }
+  },
 
   updateRoundScore(player, roundScore) {
     $(`.player-${player}-score`).text(`$${roundScore}`);
-  }
+  },
 
   displayPlayerTurn(currentPlayer) {
     $(`.player-${currentPlayer}-container`).addClass('current-turn');
-  }
+  },
 
   displayRoundPhrase(board, answer, idx) {
     let word = answer.correct_answer.split('-').join(' ').toUpperCase();
@@ -111,7 +109,7 @@ class domUpdates {
       $('.letter-block').eq(i).text(word.split('')[i - idx]);
       // console.log(idx);
     }
-  }
+  },
 
   displayBuyConsonant() {
     $consonantButton = $('.const-guess-btn');
@@ -119,26 +117,26 @@ class domUpdates {
     $consonantButton.on('click', function () {
       $consonantScreen.css("visibility", "visible");
     });
-  }
+  },
 
   displayPlayerNames(players) {
     players.forEach((player, idx) => {
       $(`.player-${idx+1}-name`).text(`${player.name}`);
     });
-  }
+  },
 
   resetGameBoard() {
     // Clear the game board ...
-  }
+  },
 
   showWinner(winnerPlayer) {
     $('.display-winner').show();
     $('.winner-name').text(`${winnerPlayer} won the round!`);
-  }
+  },
 
   populateHiddenLetters(letters) {
     $('.letter-block')
-  }
+  },
 }
 
 export default domUpdates;
