@@ -1,25 +1,28 @@
-import DomUpdates from './domUpdates'
+import domUpdates from './domUpdates'
+import data from "./data.js"
 
 class Wheel {
   constructor() {
     this.wheelValues = [];
     this.currentSpin;
+    this.wheelSpinValue
   }
-
-
 
   createWheelValues() {
     for (let i = 0; i < 6; i++) {
-      let randomNum = Math.floor(Math.random() * 30);
+      let randomNum = Math.floor(Math.random() * 22);
       this.wheelValues.push(data.wheel[randomNum]);
     }
   }
 
-  spinWheel() {
-    this.currentSpin = this.wheelValues[randomNum];
+  spinWheel() { 
     let randomNum = Math.floor(Math.random() * 6);
-    let spin = randomNum * (Math.ceil(Math.random() * 4) * 360);
-    domUpdates.spinWheel(spin);
+    this.currentSpin = this.wheelValues[randomNum];
+    domUpdates.spinWheel(randomNum);
+    this.wheelSpinValue = randomNum;
+    console.log(this.wheelValues)
+    console.log(this.wheelValues[this.wheelSpinValue])
+
   }
 }
 

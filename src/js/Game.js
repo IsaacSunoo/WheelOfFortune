@@ -25,6 +25,8 @@ class Game {
     let puzzle = this.selectRandomPuzzle();
     this.answer = puzzle.correct_answer;
     domUpdates.spinWheel();
+    this.roundWheel = new Wheel();
+    // this.roundWheel.spinWheel();
     board.populateGameBoard(puzzle);
     domUpdates.displayPuzzleCategory(this.retrieveCategory());
     domUpdates.displayPlayerTurn(this.currentPlayer);
@@ -128,8 +130,8 @@ class Game {
 
   }
 
-  startNewRound() {
-    // this.currentRound++;
+  startNewRound(Wheel) {
+    this.roundWheel.createWheelValues();
     this.players.forEach(player => {
       player.clearRoundScore();
     });
@@ -143,9 +145,8 @@ class Game {
       domUpdates.showWinner(currentGame.players[currentGame.currentPlayer].name);
     } else {
       let board = new Board();
-      this.newRoundWheel = new Wheel();
       let puzzle = this.selectRandomPuzzle();
-      domUpdates.spinWheel();
+      Wheel.spinWheel();
       board.populateGameBoard(puzzle);
       this.deconstructPuzzle(puzzle);
       domUpdates.displayPuzzleCategory(this.retrieveCategory());
