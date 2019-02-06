@@ -102,8 +102,7 @@ class domUpdates {
   }
 
   displayPlayerTurn(currentPlayer) {
-    $(`player-${currentPlayer}-container`).addClass('current-turn');
-    console.log(`player-${currentPlayer}-container`);
+    $(`.player-${currentPlayer}-container`).addClass('current-turn');
   }
 
   displayRoundPhrase(board, answer, idx) {
@@ -114,12 +113,19 @@ class domUpdates {
     }
   }
 
-  displayBuyConsonant(){
+  displayBuyConsonant() {
     $consonantButton = $('.const-guess-btn');
     $consonantScreen = $('.choose-consonant');
-    $consonantButton.on('click', function() {
-    $consonantScreen.css("visibility", "visible");
-    }
+    $consonantButton.on('click', function () {
+      $consonantScreen.css("visibility", "visible");
+    });
+  }
+
+  displayPlayerNames(players) {
+    players.forEach((player, idx) => {
+      $(`.player-${idx+1}-name`).text(`${player.name}`);
+    });
+  }
 
   resetGameBoard() {
     // Clear the game board ...
