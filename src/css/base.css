@@ -274,16 +274,27 @@ body {
   width: 200px;
 }
 
-
 .letter-block{
   background-color: #2980b9;
   height: 50px;
   width: 50px;
 }
 
+.current-turn {
+  animation-direction: alternate;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: pulse;
+  animation-timing-function: ease-in-out;
+  font-size: 30px;
+  color: green;
+  font-weight: 600;
+}
+
 
 .letter-block {
   text-align: center;
+  font-weight: 900;
 }
 
 .wheel-red{
