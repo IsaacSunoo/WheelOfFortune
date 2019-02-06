@@ -125,6 +125,7 @@ const domUpdates = {
 
   displayBuyConsonant() {
     $('.choose-consonant').css("visibility", "visible");
+    $('.wheel').css('transform', '');
   },
 
   displayBuyVowel() {
@@ -154,7 +155,10 @@ const domUpdates = {
     if ($('p').text().includes(letter)) {
       $(`p[data-values=${letter}`).removeClass('hidden');
     }
+  },
 
+  hideConsonantBoard() {
+    $('.choose-consonant').css('visibility', 'hidden');
   },
 
   showHyphen(blockNumber) {

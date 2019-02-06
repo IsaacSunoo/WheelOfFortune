@@ -7,10 +7,10 @@ import BonusWheel from './BonusWheel.js';
 
 class Game {
   constructor(players) {
-    this.players = [];
+    this.players = players || [];
     this.currentAnswer = '';
     this.currentRound = 1;
-    this.currentPlayer = 1;
+    this.currentPlayer = 0;
     this.currentPuzzle = {};
     this.roundAnswer = '';
     this.puzzleLettersArr = [];
@@ -74,8 +74,8 @@ class Game {
 
   checkLetterGuess(guess) {
     console.log(guess);
-    console.log(this.roundAnswer);
-    if (this.roundAnswer.includes(guess)) {
+
+    if (this.roundAnswer.toUpperCase().includes(guess)) {
       // this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
       domUpdates.displayCorrectLetter(guess);
 
@@ -87,7 +87,7 @@ class Game {
     }
 
   checkVowelGuess(guess) {
-    if (this.roundAnswer.includes(guess)) {
+    if (this.roundAnswer.toUpperCase().includes(guess)) {
       this.players[this.currentPlayer].buyAVowel();
       // this.determineBonusRound();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);

@@ -23,15 +23,16 @@ import './css/base.css';
 let game;
 $('.create-player').on('click', e => {
   e.preventDefault();
-  domUpdates.hideStartPage();
-  game = new Game;
-  game.initiateGame();
   let players = [
     new Player($('.player-field-1').val()),
     new Player($('.player-field-2').val()),
     new Player($('.player-field-3').val())
   ];
+  game = new Game(players);
+  domUpdates.hideStartPage();
+  game.initiateGame();
   domUpdates.displayPlayerNames(players);
+  console.log(game.players);
 });
 
 $('.const-guess-btn').on('click', e => {
@@ -48,6 +49,7 @@ $('.vowel-buy-btn').on('click', e => {
 
 $('.choose-letter').on('click', e => {
   game.checkLetterGuess($(event.target).text());
+  domUpdates.hideConsonantBoard();
 })
 
 $('.choose-vowel-letter').on('click', e => {
