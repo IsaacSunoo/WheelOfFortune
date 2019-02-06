@@ -23,14 +23,19 @@ class Game {
   initiateGame() {
     let board = new Board;
     let puzzle = this.selectRandomPuzzle();
+    this.answer = puzzle.correct_answer;
+    domUpdates.spinWheel();
     this.roundWheel = new Wheel();
     // this.roundWheel.spinWheel();
     board.populateGameBoard(puzzle);
-    // this.deconstructPuzzle(puzzle);
     domUpdates.displayPuzzleCategory(this.retrieveCategory());
     domUpdates.displayPlayerTurn(this.currentPlayer);
     domUpdates.updateRound(this.currentRound);
   }
+
+  // getRoundWheelValues() {
+  //   this.roundWheel = domUpdates.spinWheel();
+  // }
 
   selectRandomPuzzle() {
     let randomNum = Math.floor(Math.random() * 4);
@@ -48,7 +53,8 @@ class Game {
   selectRandomQuestion(questions) {
     let selectQuestion = Math.floor(Math.random() * 24);
     let puzzleBank = questions.puzzle_bank;
-    console.log(puzzleBank[selectQuestion]);
+    this.roundAnswer = puzzleBank[selectQuestion].correct_answer;
+    console.log(this.roundAnswer);
     return puzzleBank[selectQuestion];
   }
 
@@ -69,12 +75,14 @@ class Game {
   }
 
   checkLetterGuess(guess) {
+    console.log(guess);
     console.log(this.roundAnswer);
     if (this.roundAnswer.includes(guess)) {
-      this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
-      determineBonusRound();
+      // this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
+      domUpdates.displayCorrectLetter(guess);
+
+      // determineBonusRound();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
-      domUpdates.displayCorrectLetter(letter);
     } else {
         this.updateCurrentPlayer();
       }
@@ -83,7 +91,7 @@ class Game {
   checkVowelGuess(guess) {
     if (this.roundAnswer.includes(guess)) {
       this.players[this.currentPlayer].buyAVowel();
-      this.determineBonusRound();
+      // this.determineBonusRound();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
       domUpdates.displayCorrectLetter(guess);
     } else {

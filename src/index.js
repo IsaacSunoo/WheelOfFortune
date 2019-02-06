@@ -39,7 +39,7 @@ $('.const-guess-btn').on('click', e => {
 });
 
 $('.spin-btn').on('click', e => {
-  setTimeout(() => domUpdates.displayBuyConsonant(), 6400);
+  setTimeout(() => domUpdates.displayBuyConsonant(), 6000);
 });
 
 $('.vowel-buy-btn').on('click', e => {
@@ -48,8 +48,6 @@ $('.vowel-buy-btn').on('click', e => {
 
 $('.choose-letter').on('click', e => {
   game.checkLetterGuess($(event.target).text());
-  console.log($(event.target).text());
-
 })
 
 $('.choose-vowel-letter').on('click', e => {
