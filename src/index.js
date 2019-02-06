@@ -24,14 +24,18 @@ $('.create-player').on('click', (e) => {
   e.preventDefault();
   $('.start-page').css("visibility","hidden");
   let game = new Game;
+  let domUpdatesInstance = new domUpdates();
   game.initiateGame();
   let players = [
-    new Player($('.player-1-box').val()),
-    new Player($('.player-2-box').val()),
-    new Player($('.player-3-box').val())
+    new Player($('.player-field-1').val()),
+    new Player($('.player-field-2').val()),
+    new Player($('.player-field-3').val())
   ];
+  domUpdatesInstance.displayPlayerNames(players);
   console.log(players);
 });
+
+
 
 
 
