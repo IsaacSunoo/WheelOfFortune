@@ -4,7 +4,6 @@ import Data from './data'
 class domUpdates {
 
     spinWheel() {
-
     let randomNum = Math.floor(Math.random() * 6);
       var color = randomNum;
         switch(color) {
@@ -98,20 +97,34 @@ class domUpdates {
 
   }
 
+  updateRoundScore(player, roundScore) {
+    $(`.player-${player}-score`).text(`$${roundScore}`);
+  }
+
   displayPlayerTurn(currentPlayer) {
-    // add class to indicate players turn
     $(`player-${currentPlayer}-container`).addClass('current-turn');
     console.log(`player-${currentPlayer}-container`);
-
   }
 
   displayRoundPhrase(board, answer, idx) {
     let word = answer.correct_answer.split('-').join(' ').toUpperCase();
     for (let i = idx; i < idx + word.length; i++) {
       $('.letter-block').eq(i).text(word.split('')[i - idx]);
-      console.log(idx);
-
+      // console.log(idx);
     }
+  }
+
+  resetGameBoard() {
+    // Clear the game board ...
+  }
+
+  showWinner(winnerPlayer) {
+    $('.display-winner').show();
+    $('.winner-name').text(`${winnerPlayer} won the round!`);
+  }
+
+  populateHiddenLetters(letters) {
+    $('.letter-block')
   }
 
 

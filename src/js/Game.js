@@ -3,6 +3,7 @@ import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 import data from './data.js';
 import Board from './Board.js';
+import BonusWheel from './BonusWheel.js';
 
 class Game {
   constructor(players) {
@@ -11,10 +12,11 @@ class Game {
     this.currentRound = 1;
     this.currentPlayer = 1;
     this.currentPuzzle = {};
-    this.puzzleLettersArr = [];
-    this.answerLetters = [];
-    this.highestScore = 0;
     this.roundAnswer = '';
+    this.puzzleLettersArr = [];
+    this.highestScore = 0;
+    this.winner = '';
+    this.roundWheel;
 
   };
 
@@ -51,20 +53,12 @@ class Game {
   deconstructPuzzle(puzzle) {
     this.currentAnswer = puzzle.correct_answer.toUpperCase();
     this.puzzleLettersArr = this.currentAnswer.split('');
-    console.log('Current Answer: ' + this.currentAnswer);
-    console.log(this.puzzleLettersArr);
+    // console.log('Current Answer: ' + this.currentAnswer);
+    // console.log(this.puzzleLettersArr);
   }
-
-  quitResetGame() {
-
-  };
 
   incrementRound() {
     this.round += round;
-  };
-
-  loseATurn() {
-
   };
 
   retrieveCategory() {
@@ -73,18 +67,28 @@ class Game {
   }
 
   checkLetterGuess(letter) {
+    let domUpdateInstance = new domUpdates();
     if (this.roundAnswer.includes(letter)) {
       this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
       determineBonusRound();
+      domUpdateInstance.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+      domUpdateInstance.displayCorrectLetter(letter);
+    } else {
+        this.updateCurrentPlayer();
       }
-      // Change players round score in dom to update player
-      // Display the players guess on the board if the letter is on the board
     }
 
   checkVowelGuess(guess) {
-    buyAVowel();
-    if (guess.toUpperCase() === this.currentAnswer) {
-      // display vowels on board
+    let domUpdateInstance = new domUpdates();
+    if (this.roundAnswer.includes(letter)) {
+      this.players[this.currentPlayer].buyAVowel();
+      this.determineBonusRound();
+      domUpdateInstance.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+      domUpdateInstance.displayCorrectLetter(letter);
+    } else {
+      this.players[this.currentPlayer].buyAVowel();
+      domUpdateInstance.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
+      this.updateCurrentPlayer();
     }
   };
 
@@ -100,10 +104,9 @@ class Game {
     if (guess.toUpperCase() === this.currentAnswer.toUpperCase()) {
       this.players[this.currentPlayer].addTotalScore();
       this.startNewRound();
-      // Remove the guessed letters from the board
-      // Stubbed out updateCurrentPlayer method to call
+      domupdates.resetGameBoard();
     } else {
-
+      this.updateCurrentPlayer();
     }
   }
 
@@ -111,27 +114,54 @@ class Game {
 
   }
 
-  updateAccount() {
-
-  };
-
   startNewRound() {
-    // increment round by one and clear player round scores
     // this.currentRound++;
     this.players.forEach(player => {
       player.clearRoundScore();
     });
     domUpdates.displayNewRound(++this.currentRound, this.players, this.currentPlayer);
-
-
-    // Display new round info on the dom (round number and winner players score)
-    // Determine if round is regular round or bonus round (4 being the bonus)
-    // After 3 rounds and bonus round display the winner
+    if (this.currentRound === 4) {
+      this.bonusWheel = new BonusWheel();
+      this.createBonusWheelValues();
+      this.populateGameBoard(this.selectRandomPuzzle());
+      this.startBonusRound();
+    } else if (this.currentRound > 4) {
+      domUpdates.showWinner(currentGame.players[currentGame.currentPlayer].name);
+    } else {
+      let board = new Board();
+      this.newRoundWheel = new Wheel();
+      let domUpdateInstance = new domUpdates();
+      let puzzle = this.selectRandomPuzzle();
+      domUpdateInstance.spinWheel();
+      board.populateGameBoard(puzzle);
+      this.deconstructPuzzle(puzzle);
+      domUpdateInstance.displayPuzzleCategory(this.retrieveCategory());
+      domUpdateInstance.displayPlayerTurn(this.currentPlayer);
+    }
+    console.log(this.currentAnswer);
   }
 
   startBonusRound() {
+    const totalScoreArr = this.players.map(player => {
+      return player.totalScore;
+    });
+
+    this.highestScore = totalScoreArr.sort((a, b) => {
+      return b - a;
+    })[0];
+
+    let bonusRoundPlayer = this.players.filter(player => {
+      return this.highestScore === player.totalScore;
+    })[0];
+    currentGame.displayBonusLetters();
+  }
+
+  displayBonusLetters() {
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+    let skipConsonant = false;
 
   }
+
 
 
 }
