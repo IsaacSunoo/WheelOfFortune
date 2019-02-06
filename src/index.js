@@ -55,6 +55,12 @@ $('.choose-vowel-letter').on('click', e => {
   console.log($(event.target).text());
 })
 
+$('.spin-btn').on('click', e => {
+
+  console.log(game)
+  game.roundWheel.spinWheel()
+})
+
 
 
 
