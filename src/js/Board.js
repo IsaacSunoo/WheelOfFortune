@@ -26,7 +26,13 @@ class Board {
             }
         });
 
-        domUpdates.appendLettersToGameBoard(this.answerLetters); 
+        domUpdates.appendLettersToGameBoard(this.answerLetters);
+    }
+
+    checkHyphens(character, boardPosition) {
+        if (character === '-') {
+            domUpdates.showHyphen(boardPosition);
+        }
     }
 
     deconstructPuzzle(puzzle) {
