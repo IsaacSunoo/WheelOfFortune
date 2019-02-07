@@ -1,26 +1,32 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import chai from 'chai';
-const expect = chai.expect;
+import spies from 'chai-spies';
+chai.use(spies);
 
-import Game from '../src/js/Game';
+import Game from '../src/js/Game.js';
 
-describe('Game', function () {
-  // let game;
-  // beforeEach(() => {
-
-  // });
-
-  it('should return true', function() {
-    expect(true).to.equal(true);
+describe('Testing Game methods and properties', () => {
+  let game;
+  
+  beforeEach(() => {
+    game = new Game();
   });
 
-  it('should instantiate a Game', function () {
-
+  it('should be an instance of Game', () => {
+    expect(game).to.be.an.instanceOf(Game);
   });
 
-  it('should select random puzzle', function () {
-
+  it ('should have correct default properties', () => {
+    expect(game.players).to.deep.equal([]);
+    expect(game.currentAnswer).to.equal('');
+    expect(game.currentRound).to.equal(1);
+    expect(game.currentPlayer).to.equal(1);
+    expect(game.currentPuzzle).to.deep.equal({});
+    expect(game.roundAnswer).to.equal('');
+    expect(game.puzzleLettersArr).to.deep.equal([]);
+    expect(game.highestScore).to.equal(0);
+    expect(game.winner).to.equal('');
+    expect(game.roundWheel).to.equal(undefined);
   });
 });
