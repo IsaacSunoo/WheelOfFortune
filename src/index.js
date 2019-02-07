@@ -3,6 +3,7 @@
 
 // Tell webpack to use a CSS file
 
+import './css/base.css';
 
 // Tell webpack to use these js files
 import Player from './js/Player.js';
@@ -17,7 +18,6 @@ import Board from './js/Board.js';
 import './images/down.png';
 import './images/Six-Color_Standard_Wheel.png';
 import './images/Fortnite-bkgrd.jpg';
-import './css/base.css';
 
 
 let game;
@@ -67,7 +67,11 @@ $('.spin-btn').on('click', e => {
 $('.guess-input').on('blur', e => {
   console.log('guess input exited');
   game.checkPlayerGuess($('.guess-input').val());
-})
+});
+
+$('.play-again').on('click', e => {
+  window.location.reload();
+});
 
 
 
