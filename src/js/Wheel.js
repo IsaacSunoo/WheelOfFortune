@@ -11,7 +11,7 @@ class Wheel {
   createWheelValues() {
     for (let i = 0; i < 6; i++) {
       let randomNum = Math.floor(Math.random() * 22);
-      this.wheelValues.push(data.wheel[randomNum]);
+      this.wheelValues.push(data.wheelRound[randomNum]);
     }
   }
 
