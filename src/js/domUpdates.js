@@ -91,16 +91,22 @@ const domUpdates = {
   },
 
   displayPlayerTurn(currentPlayer) {
-    $(`.player-${currentPlayer+1}-container`).addClass('current-turn');
+    $(`.player-${currentPlayer + 1}-container`).addClass('current-turn');
+    // $(`.player-${currentPlayer + 1}-name`).addClass('name-animate');
   },
 
   removePlayerTurn(currentPlayer) {
-    $(`.player-${currentPlayer+1}-container`).removeClass('current-turn');
+    $(`.player-${currentPlayer + 1}-container`).removeClass('current-turn');
+    // $(`player-${currentPlayer + 1}-name`).removeClass('name-animate');
   },
 
   displayBuyConsonant() {
     $('.choose-consonant').css("visibility", "visible");
     $('.wheel').css('transform', '');
+  },
+
+  clearInputBlock() {
+    $('.guess-input').val('');
   },
 
   displayBuyVowel() {
@@ -129,8 +135,9 @@ const domUpdates = {
   },
 
   showWinner(winnerPlayer) {
+    $('.wof-game').hide();
     $('.display-winner').show();
-    $('.winner-name').text(`${winnerPlayer} won the round!`);
+    $('.winner-name').text(`${winnerPlayer} IS THE WINNER!`);
   },
 
   displayCorrectLetter(letter) {
