@@ -1,6 +1,7 @@
 import Game from './Game.js';
 import data from './data.js';
 import domUpdates from './domUpdates';
+import $ from 'jquery';
 
 class Board {
     constructor() {
@@ -16,31 +17,8 @@ class Board {
         let wordCount = puzzle.number_of_words;
         this.roundAnswer = puzzle.correct_answer.toUpperCase();
         this.answerLetters = this.deconstructPuzzle(puzzle);
-        this.answerLetters.forEach((letter, idx) => {
-            if (letter === ' ') {
-                $('.letter-block').eq(idx).append(`<p class="hidden" data-values=${letter}>${letter}</p>`);
-            } else {
-                $('.letter-block').eq(idx).append(`<p class="hidden" data-values=${letter}>${letter}</p>`).addClass('answer-block');
-            }
-        });
-
-        // let idx = 0;
-        // this.puzzleData = puzzle;
-
-        // switch (this.puzzleData.number_of_words) {
-        //   case 1:
-        //   case 2:
-        //     let boardText = 14 - this.puzzleData.correct_answer.length;
-        //     idx = Math.floor(boardText / 2 + 12);
-        //     break;
-        //   case 3:
-        //     case 4:
-
-
-        //         break;
-        // }
-
-
+        domUpdates.appendLettersToGameBoard(this.answerLetters);
+            
     }
 
     deconstructPuzzle(puzzle) {

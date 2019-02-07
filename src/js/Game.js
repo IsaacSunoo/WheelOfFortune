@@ -4,6 +4,7 @@ import domUpdates from './domUpdates.js';
 import data from './data.js';
 import Board from './Board.js';
 import BonusWheel from './BonusWheel.js';
+import $ from 'jquery';
 
 class Game {
   constructor(players) {

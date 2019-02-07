@@ -1,5 +1,5 @@
-import domUpdates from './domUpdates'
-import data from "./data.js"
+import domUpdates from './domUpdates';
+import data from "./data.js";
 
 class Wheel {
   constructor() {
@@ -20,8 +20,6 @@ class Wheel {
     this.currentSpin = this.wheelValues[randomNum];
     domUpdates.spinWheel(randomNum);
     this.wheelSpinValue = randomNum;
-    // console.log(this.wheelValues);
-    // console.log(this.wheelValues[this.wheelSpinValue]);
   }
 }
 

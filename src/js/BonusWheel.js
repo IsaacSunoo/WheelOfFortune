@@ -1,5 +1,6 @@
 import data from "./data";
 import Wheel from './Wheel.js';
+import $ from 'jquery';
 
 class BonusWheel extends Wheel {
     constructor(wheelValues, currentSpin) {
