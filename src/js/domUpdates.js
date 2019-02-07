@@ -5,7 +5,6 @@ import $ from 'jquery';
 const domUpdates = {
 
     spinWheel(color) {
-      console.log(color)
       this.updateColorValue();
       switch(color) {
           case 0:
@@ -64,8 +63,8 @@ const domUpdates = {
     $('.wheel-purple').text(`Purple: ${colors.purple}`);
     },
 
-  displayNewRound(currentRound, players, currentPlayer) {
-    this.resetGameBoard();
+  displayNewRound(currentRound, players, currentPlayer, lettersArr) {
+    this.resetGameBoard(lettersArr);
     this.updateRound(currentRound);
     this.updatePlayerInfo(players);
     this.displayPlayerTurn(currentPlayer);
@@ -81,27 +80,22 @@ const domUpdates = {
   },
 
   updatePlayerInfo(players) {
-    // $(`.player-${players}`)
     players.forEach((player, idx) => {
-      $('.player-info').append(
-        `<div class="player-info-toggle"> <p class="player-name player-name-${idx}"> ${
-          player.playerName
-          } </p><p class="round-score player${idx}-score"> $${
-          player.roundScore
-          } </p> <p class="total-score"> Account Total: $${player.totalScore} </p></div>`)
+      $(`.player-${idx+1}-account`).text(`Account Total: $${player.account}`);
+      $(`.player-${idx + 1}-score`).text('$ 0');
       });
   },
 
   updateRoundScore(player, roundScore) {
-    $(`.player-${player}-score`).text(`$${roundScore}`);
+    $(`.player-${player+1}-score`).text(`$${roundScore}`);
   },
 
   displayPlayerTurn(currentPlayer) {
-    $(`.player-${currentPlayer}-container`).addClass('current-turn');
+    $(`.player-${currentPlayer+1}-container`).addClass('current-turn');
   },
 
   removePlayerTurn(currentPlayer) {
-    $(`.player-${currentPlayer}-container`).removeClass('current-turn');
+    $(`.player-${currentPlayer+1}-container`).removeClass('current-turn');
   },
 
   displayBuyConsonant() {
@@ -123,8 +117,15 @@ const domUpdates = {
     $('.start-page').css("visibility", "hidden");
   },
 
-  resetGameBoard() {
-    $('.letter-block').removeClass('answer-block');
+  resetGameBoard(letterArr) {
+    $('p').remove();
+    letterArr.forEach(letter => {
+      if (letter === ' ') {
+        $('.letter-block').prepend(`<p class="hidden" data-values=${letter}>${letter}</p>`);
+      } else {
+        $('.letter-block').prepend(`<p class="hidden" data-values=${letter}>${letter}</p>`).removeClass('answer-block');
+      }
+    });
   },
 
   showWinner(winnerPlayer) {
@@ -148,6 +149,15 @@ const domUpdates = {
 
   hideUsedLetter(letter) {
     $(`.letter-${letter}`).addClass('hide');
+  },
+
+  displayAllLetters() {
+    for (let i = 0; i < 21; i++) {
+      $('.choose-letter').removeClass('hide');
+    }
+    for (let i = 0; i < 7; i++) {
+      $('.choose-vowel-letter').removeClass('hide');
+    }
   },
 
   showHyphen(blockNumber) {

@@ -14,11 +14,10 @@ class Board {
     }
 
     populateGameBoard(puzzle) {
-        let wordCount = puzzle.number_of_words;
         this.roundAnswer = puzzle.correct_answer.toUpperCase();
         this.answerLetters = this.deconstructPuzzle(puzzle);
-        domUpdates.appendLettersToGameBoard(this.answerLetters);
-            
+
+        domUpdates.appendLettersToGameBoard(this.answerLetters); 
     }
 
     deconstructPuzzle(puzzle) {

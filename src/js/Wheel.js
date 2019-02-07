@@ -1,4 +1,5 @@
 import domUpdates from './domUpdates';
+
 import data from "./data.js";
 
 class Wheel {
@@ -11,7 +12,7 @@ class Wheel {
   createWheelValues() {
     for (let i = 0; i < 6; i++) {
       let randomNum = Math.floor(Math.random() * 22);
-      this.wheelValues.push(data.wheelRound[randomNum]);
+      this.wheelValues.push(data.wheel[randomNum]);
     }
   }
 
