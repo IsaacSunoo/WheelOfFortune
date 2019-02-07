@@ -61,12 +61,5 @@ describe('Testing Game methods and properties', () => {
     game.selectRandomPuzzle();
     expect(game.currentPuzzle).to.deep.equal(game.currentPuzzle);
   });
-  
-  it('should return currentPuzzle when selectRandomPuzzle is invoked', () => {
-    game.selectRandomPuzzle();
-    expect(game.currentPuzzle).to.deep.equal(game.currentPuzzle);
-  });
-  
-
 
 });
