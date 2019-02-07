@@ -18,7 +18,7 @@ import './images/down.png';
 import './images/Six-Color_Standard_Wheel.png';
 import './images/Fortnite-bkgrd.jpg';
 import './css/base.css';
-
+import $ from 'jquery';
 
 let game;
 $('.create-player').on('click', e => {
