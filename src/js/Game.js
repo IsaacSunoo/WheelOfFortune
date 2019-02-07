@@ -10,7 +10,7 @@ class Game {
     this.players = players || [];
     this.currentAnswer = '';
     this.currentRound = 1;
-    this.currentPlayer = 1;
+    this.currentPlayer = 0;
     this.currentPuzzle = {};
     this.roundAnswer = '';
     this.puzzleLettersArr = [];
@@ -73,7 +73,6 @@ class Game {
 
   checkLetterGuess(guess) {
     console.log(guess);
-
     if (this.roundAnswer.toUpperCase().includes(guess)) {
       console.log('Round score', this.roundWheel.currentSpin);
       this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
@@ -108,14 +107,11 @@ class Game {
   }
 
   checkPlayerGuess(guess) {
-    console.log('guess', guess);
-    console.log('current answer player guess', this.currentAnswer)
+    // console.log('guess', guess);
+    // console.log('current answer player guess', this.currentAnswer)
     if (guess.toUpperCase() === this.currentAnswer.toUpperCase()) {
-      console.log('Player guessed the correct answer');
-
       this.players[this.currentPlayer].addTotalScore();
       this.startNewRound();
-      domupdates.resetGameBoard();
     } else {
       this.updateCurrentPlayer();
     }
@@ -132,12 +128,14 @@ class Game {
 
   }
 
-  startNewRound(Wheel) {
+  startNewRound() {
+
     this.roundWheel.createWheelValues();
+    domUpdates.displayAllLetters();
     this.players.forEach(player => {
       player.clearRoundScore();
     });
-    domUpdates.displayNewRound(++this.currentRound, this.players, this.currentPlayer);
+    domUpdates.displayNewRound(++this.currentRound, this.players, this.currentPlayer, this.currentPuzzle.correct_answer.split(''));
     if (this.currentRound === 4) {
       this.bonusWheel = new BonusWheel();
       this.createBonusWheelValues();
@@ -148,9 +146,14 @@ class Game {
     } else {
       let board = new Board();
       let puzzle = this.selectRandomPuzzle();
-      wheel.spinWheel();
+      console.log('New Round Puzzle: ', puzzle);
+
+      this.answer = puzzle.correct_answer;
+      domUpdates.spinWheel();
+      this.roundWheel = new Wheel();
+      this.roundWheel.createWheelValues();
       board.populateGameBoard(puzzle);
-      this.deconstructPuzzle(puzzle);
+      // board.deconstructPuzzle(puzzle);
       domUpdates.displayPuzzleCategory(this.retrieveCategory());
       domUpdates.displayPlayerTurn(this.currentPlayer);
     }

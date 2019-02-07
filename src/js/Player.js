@@ -15,7 +15,7 @@ class Player {
     if (spinValue === 'LOSE A TURN') {
       game.updateCurrentPlayer();
     } else if (spinValue === 'BANKRUPT') {
-      this.roundScore();
+      this.clearRoundScore();
       game.updateCurrentPlayer();
     } else {
       this.roundScore += spinValue;
@@ -27,7 +27,7 @@ class Player {
   }
 
   addTotalScore() {
-    this.totalScore += this.roundScore;
+    this.account += this.roundScore;
   }
 
 }

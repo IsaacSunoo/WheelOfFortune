@@ -36,7 +36,7 @@ body {
   height: 50px;
 }
 
-.category-section p {
+.category-section span {
   display: flex;
   justify-content: center;
   background-color: #94c0dc;
