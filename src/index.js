@@ -32,7 +32,6 @@ $('.create-player').on('click', e => {
   domUpdates.hideStartPage();
   game.initiateGame();
   domUpdates.displayPlayerNames(players);
-  console.log(game.players);
 });
 
 $('.const-guess-btn').on('click', e => {
@@ -49,18 +48,25 @@ $('.vowel-buy-btn').on('click', e => {
 
 $('.choose-letter').on('click', e => {
   game.checkLetterGuess($(event.target).text());
+  domUpdates.hideUsedLetter($(event.target).text());
   domUpdates.hideConsonantBoard();
 })
 
 $('.choose-vowel-letter').on('click', e => {
-  $(event.target).text();
-  console.log($(event.target).text());
+  game.checkVowelGuess($(event.target).text());
+  domUpdates.hideUsedLetter($(event.target).text());
+  domUpdates.hideVowelBoard();
 })
 
 $('.spin-btn').on('click', e => {
-
   console.log(game)
-  game.roundWheel.spinWheel()
+  game.roundWheel.spinWheel();
+  console.log(game.roundWheel.currentSpin);
+});
+
+$('.guess-input').on('blur', e => {
+  console.log('guess input exited');
+  game.checkPlayerGuess($('.guess-input').val());
 })
 
 

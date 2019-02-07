@@ -5,7 +5,7 @@ class Wheel {
   constructor() {
     this.wheelValues = [];
     this.currentSpin;
-    this.wheelSpinValue
+    this.wheelSpinValue;
   }
 
   createWheelValues() {
@@ -15,14 +15,13 @@ class Wheel {
     }
   }
 
-  spinWheel() { 
+  spinWheel() {
     let randomNum = Math.floor(Math.random() * 6);
     this.currentSpin = this.wheelValues[randomNum];
     domUpdates.spinWheel(randomNum);
     this.wheelSpinValue = randomNum;
-    console.log(this.wheelValues)
-    console.log(this.wheelValues[this.wheelSpinValue])
-
+    // console.log(this.wheelValues);
+    // console.log(this.wheelValues[this.wheelSpinValue]);
   }
 }
 

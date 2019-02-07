@@ -10,14 +10,13 @@ class Game {
     this.players = players || [];
     this.currentAnswer = '';
     this.currentRound = 1;
-    this.currentPlayer = 0;
+    this.currentPlayer = 1;
     this.currentPuzzle = {};
     this.roundAnswer = '';
     this.puzzleLettersArr = [];
     this.highestScore = 0;
     this.winner = '';
     this.roundWheel;
-
   };
 
   initiateGame() {
@@ -26,6 +25,7 @@ class Game {
     this.answer = puzzle.correct_answer;
     domUpdates.spinWheel();
     this.roundWheel = new Wheel();
+    this.roundWheel.createWheelValues();
     // this.roundWheel.spinWheel();
     board.populateGameBoard(puzzle);
     domUpdates.displayPuzzleCategory(this.retrieveCategory());
@@ -40,13 +40,21 @@ class Game {
   selectRandomPuzzle() {
     let randomNum = Math.floor(Math.random() * 4);
     if (randomNum === 0) {
-      return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.one_word_answers);
+      this.currentPuzzle = this.selectRandomQuestion(data.puzzles.one_word_answers)
+      this.currentAnswer = this.currentPuzzle.correct_answer;
+      return this.currentPuzzle;
     } else if (randomNum === 1) {
-      return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.two_word_answers);
+      this.currentPuzzle = this.selectRandomQuestion(data.puzzles.two_word_answers);
+      this.currentAnswer = this.currentPuzzle.correct_answer;
+      return this.currentPuzzle;
     } else if (randomNum === 2) {
-      return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.three_word_answers);
+      this.currentPuzzle = this.selectRandomQuestion(data.puzzles.three_word_answers);
+      this.currentAnswer = this.currentPuzzle.correct_answer;
+      return this.currentPuzzle;
     } else {
-      return this.currentPuzzle = this.selectRandomQuestion(data.puzzles.four_word_answers);
+      this.currentPuzzle = this.selectRandomQuestion(data.puzzles.four_word_answers);
+      this.currentAnswer = this.currentPuzzle.correct_answer;
+      return this.currentPuzzle;
     }
   }
 
@@ -58,17 +66,6 @@ class Game {
     return puzzleBank[selectQuestion];
   }
 
-  // deconstructPuzzle(puzzle) {
-  //   this.currentAnswer = puzzle.correct_answer.toUpperCase();
-  //   this.puzzleLettersArr = this.currentAnswer.split('');
-  //   // console.log('Current Answer: ' + this.currentAnswer);
-  //   // console.log(this.puzzleLettersArr);
-  // }
-
-  incrementRound() {
-    this.round += round;
-  };
-
   retrieveCategory() {
     let category = this.currentPuzzle.category;
     return category;
@@ -78,10 +75,10 @@ class Game {
     console.log(guess);
 
     if (this.roundAnswer.toUpperCase().includes(guess)) {
-      // this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
+      console.log('Round score', this.roundWheel.currentSpin);
+      this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
       domUpdates.displayCorrectLetter(guess);
-
-      // determineBonusRound();
+      // this.determineBonusRound();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
     } else {
         this.updateCurrentPlayer();
@@ -89,28 +86,33 @@ class Game {
     }
 
   checkVowelGuess(guess) {
+    console.log('vowel guess', guess);
+    this.players[this.currentPlayer].buyAVowel();
     if (this.roundAnswer.toUpperCase().includes(guess)) {
-      this.players[this.currentPlayer].buyAVowel();
       // this.determineBonusRound();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
       domUpdates.displayCorrectLetter(guess);
     } else {
-      this.players[this.currentPlayer].buyAVowel();
+      // this.players[this.currentPlayer].buyAVowel();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
       this.updateCurrentPlayer();
     }
   };
 
   determineBonusRound() {
-    if (currentRound == 4) {
+    if (this.currentRound == 4) {
       this.players.forEach(player => {
         player.clearRoundScore();
-      });
+      e});
     }
   }
 
   checkPlayerGuess(guess) {
+    console.log('guess', guess);
+    console.log('current answer player guess', this.currentAnswer)
     if (guess.toUpperCase() === this.currentAnswer.toUpperCase()) {
+      console.log('Player guessed the correct answer');
+
       this.players[this.currentPlayer].addTotalScore();
       this.startNewRound();
       domupdates.resetGameBoard();
@@ -146,7 +148,7 @@ class Game {
     } else {
       let board = new Board();
       let puzzle = this.selectRandomPuzzle();
-      Wheel.spinWheel();
+      wheel.spinWheel();
       board.populateGameBoard(puzzle);
       this.deconstructPuzzle(puzzle);
       domUpdates.displayPuzzleCategory(this.retrieveCategory());

@@ -24,20 +24,20 @@ class Board {
             }
         });
 
-        let idx = 0;
-        this.puzzleData = puzzle;
+        // let idx = 0;
+        // this.puzzleData = puzzle;
 
-        switch (this.puzzleData.number_of_words) {
-          case 1:
-          case 2:
-            let boardText = 14 - this.puzzleData.correct_answer.length;
-            idx = Math.floor(boardText / 2 + 12);
-            break;
-          case 3:
-            case 4:
+        // switch (this.puzzleData.number_of_words) {
+        //   case 1:
+        //   case 2:
+        //     let boardText = 14 - this.puzzleData.correct_answer.length;
+        //     idx = Math.floor(boardText / 2 + 12);
+        //     break;
+        //   case 3:
+        //     case 4:
 
-                break;
-        }
+        //         break;
+        // }
 
     }
 
