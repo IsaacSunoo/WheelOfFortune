@@ -1,6 +1,7 @@
 import Game from './Game.js';
 import data from './data.js';
 import domUpdates from './domUpdates';
+import $ from 'jquery';
 
 class Board {
     constructor() {
@@ -24,6 +25,8 @@ class Board {
                 $('.letter-block').eq(idx).append(`<p class="hidden" data-values=${letter}>${letter}</p>`).addClass('answer-block');
             }
         });
+
+        domUpdates.appendLettersToGameBoard(this.answerLetters); 
     }
 
     deconstructPuzzle(puzzle) {

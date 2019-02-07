@@ -1,5 +1,6 @@
 import Wheel from './Wheel';
 import Data from './data';
+import $ from 'jquery';
 
 const domUpdates = {
 
@@ -169,7 +170,18 @@ const domUpdates = {
   showHyphen(blockNumber) {
     $(`.block-${blockNumber}`).children().removeClass('hidden');
     $(`.block-${blockNumber}`).addClass('hidden');
-  }
+  },
+
+  appendLettersToGameBoard(answerLetters){
+    answerLetters.forEach((letter, idx) =>{
+      if (letter === ' ') {
+        $('.letter-block').eq(idx).append(`<p class="hidden" data-values=${letter}>${letter}</p>`);
+    } else {
+        $('.letter-block').eq(idx).append(`<p class="hidden" data-values=${letter}>${letter}</p>`).addClass('answer-block');
+    }
+ })
 }
+};
+
 
 export default domUpdates;

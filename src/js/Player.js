@@ -1,5 +1,7 @@
-import Game from './Game'
-import domUpdates from './domUpdates';
+
+import Game from './Game';
+import $ from 'jquery';
+
 
 class Player {
   constructor(name) {
