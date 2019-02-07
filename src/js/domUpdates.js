@@ -5,18 +5,16 @@ const domUpdates = {
 
     spinWheel(color) {
       console.log(color)
-      this.updateColorValue();  
+      this.updateColorValue();
       switch(color) {
           case 0:
             $(".wheel").css("transform", "rotate(720deg)");
           break;
           case 1:
             $(".wheel").css("transform", "rotate(780deg)");
-              // });
           break;
           case 2:
             $(".wheel").css("transform", "rotate(840deg)");
-              // });
           break;
           case 3:
             $(".wheel").css("transform", "rotate(900deg)");
@@ -47,7 +45,7 @@ const domUpdates = {
       blue: '',
       purple: ''
     };
-    
+
 
     for(let i = 0; i < 6; i++){
       for(var property in colors){
@@ -66,7 +64,7 @@ const domUpdates = {
     },
 
   displayNewRound(currentRound, players, currentPlayer) {
-    clearPuzzleBoard();
+    this.resetGameBoard();
     this.updateRound(currentRound);
     this.updatePlayerInfo(players);
     this.displayPlayerTurn(currentPlayer);
@@ -85,9 +83,9 @@ const domUpdates = {
     // $(`.player-${players}`)
     players.forEach((player, idx) => {
       $('.player-info').append(
-        `<div class="player-info-toggle"> <p class="player-name player-name-${i}"> ${
+        `<div class="player-info-toggle"> <p class="player-name player-name-${idx}"> ${
           player.playerName
-          } </p><p class="round-score player${i}-score"> $${
+          } </p><p class="round-score player${idx}-score"> $${
           player.roundScore
           } </p> <p class="total-score"> Account Total: $${player.totalScore} </p></div>`)
       });
@@ -105,16 +103,9 @@ const domUpdates = {
     $(`.player-${currentPlayer}-container`).removeClass('current-turn');
   },
 
-  // displayRoundPhrase(board, answer, idx) {
-  //   let word = answer.correct_answer.split('-').join(' ').toUpperCase();
-  //   for (let i = idx; i < idx + word.length; i++) {
-  //     $('.letter-block').eq(i).text(word.split('')[i - idx]).addClass('answer-block');
-  //     console.log(idx);
-  //   }
-  // },
-
   displayBuyConsonant() {
     $('.choose-consonant').css("visibility", "visible");
+    $('.wheel').css('transform', '');
   },
 
   displayBuyVowel() {
@@ -132,7 +123,7 @@ const domUpdates = {
   },
 
   resetGameBoard() {
-    // Clear the game board ...
+    $('.letter-block').removeClass('answer-block');
   },
 
   showWinner(winnerPlayer) {
@@ -144,7 +135,18 @@ const domUpdates = {
     if ($('p').text().includes(letter)) {
       $(`p[data-values=${letter}`).removeClass('hidden');
     }
+  },
 
+  hideConsonantBoard() {
+    $('.choose-consonant').css('visibility', 'hidden');
+  },
+
+  hideVowelBoard() {
+    $('.choose-vowel').css('visibility', 'hidden');
+  },
+
+  hideUsedLetter(letter) {
+    $(`.letter-${letter}`).addClass('hide');
   },
 
   showHyphen(blockNumber) {

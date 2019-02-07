@@ -23,14 +23,14 @@ import './css/base.css';
 let game;
 $('.create-player').on('click', e => {
   e.preventDefault();
-  domUpdates.hideStartPage();
-  game = new Game;
-  game.initiateGame();
   let players = [
     new Player($('.player-field-1').val()),
     new Player($('.player-field-2').val()),
     new Player($('.player-field-3').val())
   ];
+  game = new Game(players);
+  domUpdates.hideStartPage();
+  game.initiateGame();
   domUpdates.displayPlayerNames(players);
 });
 
@@ -48,17 +48,25 @@ $('.vowel-buy-btn').on('click', e => {
 
 $('.choose-letter').on('click', e => {
   game.checkLetterGuess($(event.target).text());
+  domUpdates.hideUsedLetter($(event.target).text());
+  domUpdates.hideConsonantBoard();
 })
 
 $('.choose-vowel-letter').on('click', e => {
-  $(event.target).text();
-  console.log($(event.target).text());
+  game.checkVowelGuess($(event.target).text());
+  domUpdates.hideUsedLetter($(event.target).text());
+  domUpdates.hideVowelBoard();
 })
 
 $('.spin-btn').on('click', e => {
-
   console.log(game)
-  game.roundWheel.spinWheel()
+  game.roundWheel.spinWheel();
+  console.log(game.roundWheel.currentSpin);
+});
+
+$('.guess-input').on('blur', e => {
+  console.log('guess input exited');
+  game.checkPlayerGuess($('.guess-input').val());
 })
 
 

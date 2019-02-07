@@ -1,13 +1,10 @@
 import Game from './Game'
 
 class Player {
-  constructor(name, turn) {
+  constructor(name) {
     this.name = name || 'Player 1';
     this.roundScore =  0;
     this.account = 0;
-  };
-
-  changeTurn() {
   };
 
   buyAVowel() {
@@ -15,9 +12,9 @@ class Player {
   };
 
   addToPlayerScore(spinValue) {
-    if (roundValue === 'LOSE A TURN') {
+    if (spinValue === 'LOSE A TURN') {
       game.updateCurrentPlayer();
-    } else if (roundValue === 'BANKRUPT') {
+    } else if (spinValue === 'BANKRUPT') {
       this.roundScore();
       game.updateCurrentPlayer();
     } else {
