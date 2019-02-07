@@ -9,7 +9,7 @@ describe('Testing Player methods and properties', function () {
   beforeEach(() => {
     player = new Player('Requis');
     player.roundScore = 1000;
-    player.totalScore = 1000;
+    player.totalScore = 2000;
   });
 
   it('should be an instance of Player', () => {
@@ -28,7 +28,7 @@ describe('Testing Player methods and properties', function () {
 
   it('should give a total score', function () {
     player.addTotalScore();
-    expect(player.roundScore).to.equal(1000);
+    expect(player.totalScore).to.equal(player.roundScore += player.account);
   });
 
 
