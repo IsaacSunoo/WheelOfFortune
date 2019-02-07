@@ -84,6 +84,11 @@ body {
   height: 25px;
 }
 
+.letter-1 {
+  background-color: #2980b9;
+  color: #2980b9;
+}
+
 .game-board {
   display: flex;
   justify-content: center;
@@ -103,8 +108,9 @@ body {
 
 .guess-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 20px;
+
 }
 
 .header{
@@ -228,11 +234,13 @@ body {
 }
 
 .vowel-buy-btn{
+  display: flex;
   background-color: #94c0dc;
   border-style: solid;
   border-radius: 5%;
   border-color: #223344;
   height: 50px;
+  margin-right: 50px;
 }
 
 .wheel {

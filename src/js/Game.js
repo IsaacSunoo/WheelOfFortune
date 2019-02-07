@@ -26,16 +26,11 @@ class Game {
     domUpdates.spinWheel();
     this.roundWheel = new Wheel();
     this.roundWheel.createWheelValues();
-    // this.roundWheel.spinWheel();
     board.populateGameBoard(puzzle);
     domUpdates.displayPuzzleCategory(this.retrieveCategory());
     domUpdates.displayPlayerTurn(this.currentPlayer);
     domUpdates.updateRound(this.currentRound);
   }
-
-  // getRoundWheelValues() {
-  //   this.roundWheel = domUpdates.spinWheel();
-  // }
 
   selectRandomPuzzle() {
     let randomNum = Math.floor(Math.random() * 4);
@@ -72,12 +67,11 @@ class Game {
   }
 
   checkLetterGuess(guess) {
-    console.log(guess);
     if (this.roundAnswer.toUpperCase().includes(guess)) {
       console.log('Round score', this.roundWheel.currentSpin);
       this.players[this.currentPlayer].addToPlayerScore(this.roundWheel.currentSpin);
       domUpdates.displayCorrectLetter(guess);
-      // this.determineBonusRound();
+      this.determineBonusRound();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
     } else {
         this.updateCurrentPlayer();
@@ -88,11 +82,10 @@ class Game {
     console.log('vowel guess', guess);
     this.players[this.currentPlayer].buyAVowel();
     if (this.roundAnswer.toUpperCase().includes(guess)) {
-      // this.determineBonusRound();
+      this.determineBonusRound();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
       domUpdates.displayCorrectLetter(guess);
     } else {
-      // this.players[this.currentPlayer].buyAVowel();
       domUpdates.updateRoundScore(this.currentPlayer, this.players[this.currentPlayer].roundScore);
       this.updateCurrentPlayer();
     }
@@ -102,13 +95,11 @@ class Game {
     if (this.currentRound == 4) {
       this.players.forEach(player => {
         player.clearRoundScore();
-      e});
+      });
     }
   }
 
   checkPlayerGuess(guess) {
-    // console.log('guess', guess);
-    // console.log('current answer player guess', this.currentAnswer)
     if (guess.toUpperCase() === this.currentAnswer.toUpperCase()) {
       this.players[this.currentPlayer].addTotalScore();
       this.startNewRound();
@@ -119,8 +110,8 @@ class Game {
 
   updateCurrentPlayer() {
     domUpdates.removePlayerTurn(this.currentPlayer);
-    if (this.currentPlayer === 3) {
-      this.currentPlayer = 1;
+    if (this.currentPlayer === 2) {
+      this.currentPlayer = 0;
     } else {
       this.currentPlayer++;
     }
@@ -129,7 +120,6 @@ class Game {
   }
 
   startNewRound() {
-
     this.roundWheel.createWheelValues();
     domUpdates.displayAllLetters();
     this.players.forEach(player => {
@@ -138,11 +128,12 @@ class Game {
     domUpdates.displayNewRound(++this.currentRound, this.players, this.currentPlayer, this.currentPuzzle.correct_answer.split(''));
     if (this.currentRound === 4) {
       this.bonusWheel = new BonusWheel();
-      this.createBonusWheelValues();
-      this.populateGameBoard(this.selectRandomPuzzle());
+      let bonusBoard = new Board();
+      this.bonusWheel.createBonusWheelValues();
+      bonusBoard.populateGameBoard(this.selectRandomPuzzle());
       this.startBonusRound();
     } else if (this.currentRound > 4) {
-      domUpdates.showWinner(currentGame.players[currentGame.currentPlayer].name);
+      domUpdates.showWinner(this.players[this.currentPlayer].name);
     } else {
       let board = new Board();
       let puzzle = this.selectRandomPuzzle();
@@ -153,7 +144,6 @@ class Game {
       this.roundWheel = new Wheel();
       this.roundWheel.createWheelValues();
       board.populateGameBoard(puzzle);
-      // board.deconstructPuzzle(puzzle);
       domUpdates.displayPuzzleCategory(this.retrieveCategory());
       domUpdates.displayPlayerTurn(this.currentPlayer);
     }
@@ -164,20 +154,30 @@ class Game {
     const totalScoreArr = this.players.map(player => {
       return player.totalScore;
     });
-
     this.highestScore = totalScoreArr.sort((a, b) => {
       return b - a;
     })[0];
-
     let bonusRoundPlayer = this.players.filter(player => {
       return this.highestScore === player.totalScore;
     })[0];
-    currentGame.displayBonusLetters();
+    this.displayBonusLetters();
   }
 
   displayBonusLetters() {
     let vowels = ['a', 'e', 'i', 'o', 'u'];
     let skipConsonant = false;
+    this.puzzleLettersArr.forEach(word => {
+      word.forEach(character => {
+        if (!vowels.includes(character)) {
+          if (skipConsonant === false) {
+            skipConsonant = !skipConsonant;
+          } else {
+            this.checkLetterGuess(character);
+            skipConsonant = !skipConsonant;
+          }
+        }
+      });
+    });
   }
 
 

@@ -1,4 +1,5 @@
 import Game from './Game'
+import domUpdates from './domUpdates';
 
 class Player {
   constructor(name) {
