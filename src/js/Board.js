@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 class Board {
     constructor() {
-        this.puzzleData;
+       this.puzzleData;
         this.roundPuzzle;
         this.roundAnswer;
         this.usedLetters = [];
@@ -25,8 +25,6 @@ class Board {
                 $('.letter-block').eq(idx).append(`<p class="hidden" data-values=${letter}>${letter}</p>`).addClass('answer-block');
             }
         });
-
-        domUpdates.appendLettersToGameBoard(this.answerLetters);
     }
 
     checkHyphens(character, boardPosition) {
