@@ -8,8 +8,7 @@ describe('Testing Player methods and properties', function () {
   let wheel;
   
   beforeEach(() => {
-    wheel = new Wheel
-    // wheel.wheelValues = [200,400,600,800,1000];
+    wheel = new Wheel();
   });
 
   it('should be an instance of Wheel', () => {
@@ -23,11 +22,11 @@ describe('Testing Player methods and properties', function () {
   });
 
   it('should create wheel values', function () {
-    expect(true).to.equal(true);
+    expect(wheel.wheelValues.length).to.equal(0);
   });
 
   it('should fire spinWheel()', function () {
-    expect().to.equal();
+    expect(wheel.wheelSpinValue).to.equal(wheel.randomNum);
   });
 
 
