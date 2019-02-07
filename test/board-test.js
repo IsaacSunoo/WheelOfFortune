@@ -6,15 +6,20 @@ const expect = chai.expect;
 import Board from '../src/js/Board.js';
 import domUpdates from '../src/js/domUpdates';
 import Game from '../src/js/Game';
+import data from '../src/js/data';
+import $ from 'jquery';
 
 
-chai.spy.on(domUpdates,'checkHyphens','populateGameBoard',() => true);
+chai.spy.on(domUpdates,['showHyphen','populateGameBoard','appendLettersToGameBoard'],() => true);
+
 
 describe('Testing Board methods and properties', () => {
   let board;
+  let game;
   
   beforeEach(() => {
     board = new Board();
+    game = new Game();
   });
 
   afterEach(function () {
@@ -36,15 +41,18 @@ describe('Testing Board methods and properties', () => {
   
   
   it('should call checkHyphens',() => {
-    domUpdates.showHyphen();
-    expect(domUpdates.showHyphen()).to.have.been.called();
+    board.checkHyphens('-','');
+    expect(domUpdates.showHyphen).to.have.been.called(1);
   })
 
-  it('should call populateGameBoard',() => {
-    domUpdates.populateGameBoard();
-    expect(chai.spy).to.have.been.called();
+  it('should call appendLettersToGameBoard when populateGameBoard is invoked',() => {
+    board.populateGameBoard(data.puzzles.one_word_answers.puzzle_bank[0]);
+    expect(domUpdates.appendLettersToGameBoard).to.have.been.called(1);
   })
 
-  
-
+  it('should call deconstructPuzzle when populateGameBoard is invoked', () =>{
+    chai.spy.on(board,['deconstructPuzzle'], () => true)
+    board.populateGameBoard(data.puzzles.one_word_answers.puzzle_bank[0]);
+    expect(board.deconstructPuzzle).to.have.been.called(1);
+  });
 });
