@@ -5,7 +5,7 @@ import Player from '../src/js/Player';
 
 describe('Testing Player methods and properties', function () {
   let player;
-  
+
   beforeEach(() => {
     player = new Player('Requis');
     player.roundScore = 1000;
